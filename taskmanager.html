@@ -1,0 +1,700 @@
+<!Doctype html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <meta http-equiv="description" content="A task tracker that helps keep note of daily, weekly, monthly and yearly tasks. Distincting each tasks as work, home and personal tasks is enabled, Prioritizing and postponing tasks is possible too.">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <title>Task Tracker</title>
+    <style>
+    html, body{
+        margin:0;
+        padding: 0;
+        height:100%;
+    }
+   .heading{
+      margin:auto;
+      padding-left:60px;
+   }
+    .row, .row-1{
+        display:flex;
+        flex-direction: row;
+        margin:auto;
+        padding:20px;
+    }
+    .row-2{
+        display:flex;
+        flex-direction: row;
+        margin:auto;
+        width:90%;
+    }
+    .row-3{
+        display:flex;
+        flex-direction: row;
+        margin:auto;
+        width:90%;
+        background-color:rgb(245, 246, 247);
+        box-shadow: 0px 4px 4px rgba(18, 79, 170, 0.25);
+        border-radius:10px;
+        margin-top:20px;
+    }
+    .row-4{
+        display:flex;
+        flex-direction: column;
+        margin:auto;
+        width:90%;
+        margin-top:20px;
+    }
+    .col-1, .col-2, .col-3{
+        background-color:rgb(241, 244, 247);
+        box-shadow: 0px 4px 4px rgba(18, 79, 170, 0.25);
+        
+        width:100%;
+        margin-left:10px;
+        margin-right:10px;
+        padding-bottom:10px;
+    }
+  
+    .col-1-1{
+        height:100%;
+        width:100%;
+        margin-left:10px;
+        margin-right:10px;
+    }
+    .img-profile{
+        height:100px;
+        width:100px;
+        border-radius: 50%;
+    }
+    .col-1-2{
+        height:100%;
+        width:80%;
+        text-align: center;
+    }
+    .work-summary, .home-summary, .personal-summary{
+        background-color:rgb(245, 246, 247);
+        box-shadow: 0px 4px 4px rgba(18, 79, 170, 0.25);
+        border-radius:20px;
+        padding:2px 0px 0px 0px;
+        margin-left:5px;
+    }
+    .work-summary a, .home-summary a, .personal-summary a{
+        text-decoration: none;
+        color:rgb(18, 79, 170);
+    }
+    .col-1-3{
+        width:80%;
+        text-align: center;
+    }
+    .done, .postponed, .pending{
+        color:rgb(18, 79, 170);
+    }
+    .row-4-1{
+        width:100%;
+        background-color:rgb(245, 246, 247);
+        box-shadow: 0px 4px 4px rgba(18, 79, 170, 0.25);
+        margin-bottom:5px;
+        margin-top:5px;
+        border-radius:3px;
+        display:flex;
+        flex-direction: row;
+    }
+    .row-4 .prior{
+        color:rgb(18, 79, 170);
+    }
+    .col-1-4-1{
+        width:100%;
+        line-height:1;
+        padding:5px;
+    }
+    #go-to-tasks{
+        display: none;
+    }
+    .fa{
+        padding:5px;
+        font-size:30px;
+    }
+    .row-2-2{
+        display:flex;
+        flex-direction: row;
+        margin:auto;
+        box-shadow: 0px 4px 4px 0px rgba(18, 79, 170, 0.25);
+        margin-bottom:5px;
+    }
+    .col-2-1, .col-2-2, .col-2-3{
+        margin-left:30px;
+    }
+    .btn-task-container{
+        border:none;
+        background-color:rgb(245, 246, 247);
+        outline:none;
+    }
+    .row-3-2{
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        margin:auto;
+    }
+    .row-3-2-1{
+        background-color:rgb(245, 246, 247);
+        box-shadow: 0px 4px 4px 0px rgba(18, 79, 170, 0.25);
+        width:90%;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        padding:5px;
+        padding-bottom: 0;
+    }
+    li{
+        list-style-type: none;
+    }
+   
+    .trigger-add-task-container{
+        height:50px;
+        width:50px;
+        border-radius: 50%;
+        background: rgb(18, 79, 170);
+        outline: none;
+        margin-left:45%;
+    }
+    .img-task-add{
+        height:150px;
+        width:150px;
+        border-radius: 50%;
+        padding:33%;
+        margin-top:30%;
+    }
+    .add-task-input{
+        padding:33%;
+        margin-top:30%;
+        display: none;
+    }
+    input{
+        width:100%;
+        height:100%;
+    }
+    .startdatelabel, .enddatelabel{
+        background-color:rgb(18, 79, 170);
+        margin-top:-70px;
+        width:50%;
+    }
+    .postpone-btn, .prioritize-btn{
+        margin-left:10px;
+        color:white;
+        background-color:rgb(18, 79, 170);
+    }
+    
+    #back-to-overview{
+        display: none;
+    }
+    #UList, #UList1, #UList2{
+        overflow:auto;
+        height:400px;
+    }
+    #UList-priority{
+        overflow:auto;
+        height:80px;
+    }
+    #personal-tasks, #home-tasks{
+        display: none;
+    }
+    @media screen and (max-width:600px){
+    .heading{
+       padding-left:30px;
+   }
+    .row{
+        background-color:rgb(245, 246, 247);
+        flex-direction: column;
+        margin:auto;
+    }
+    .col-1, .col-2, .col-3{
+        width:100%;
+        margin-left:0;
+        margin-right:0;
+        background-color:none;
+        box-shadow: none;
+    }
+    #go-to-tasks{
+        display: block;
+    }
+    #col-two, #col-three{
+        display:none;
+    }
+    #back-to-overview{
+        display:block;
+    }
+    .fa-arrow-left{
+        display: block;
+    }
+    }
+    .row-4-2{
+        text-align:center;
+    }
+    .fa-check, .fa-arrow-right{
+        background-color:rgb(18, 79, 170);
+        padding:15px;
+        border-radius: 50%;
+        color:white;
+    }
+    .fa-arrow-left{
+        color:rgb(18, 79, 170);
+    }
+    #logout a{
+        text-decoration: none;
+        color:rgb(18, 79, 170);
+    }
+    #row-0{
+        display:flex;
+        flex-direction: row
+    }
+    #prior-goal{
+        font-size:80px;
+        color:grey;
+        margin:auto;
+        padding-top:10px;
+        margin-top:20px;
+    }
+    #work-tasks-btn{
+        border-bottom: 2px solid black;
+    }
+    #logo{
+        height:50px; width:50px; border-radius:50%;
+    }
+    .icon-edit{
+        text-align:center;
+        margin-top:100%;
+        color:grey;
+    }
+    .fa-edit, .fa-tasks{
+        font-size:100px;        
+    }
+    #input-task{
+        width:50%;
+    }
+    </style>
+</head>
+<body>
+   
+   <!--overall row-->
+   <div class="row">
+    <!--first column-->
+    <div class="col-1" id="col-one">
+        <div class="row-1">
+            <div class="col-1-1">
+                <h3 style="color:rgb(18, 79, 170);">Fatimah Davies</h3>
+                <h3 id="date">date</h3>
+            </div>
+            <img src="goaltrackerlogo.jpg" class="img-profile" alt="image-icon">
+        </div>
+        <div class="row-2">
+            <div class="col-1-2">
+                <section class="work-summary">
+                    <a href="work.html">Work</a>
+                    
+                    <p>2/4</p>
+                </section>
+            </div>
+            <div class="col-1-2">
+                <section class="home-summary">
+                    <a href="work.html">Home</a>
+                    
+                    <p>2/4</p>
+                </section>
+            </div>
+            <div class="col-1-2">
+                <section class="personal-summary">
+                    <a href="work.html">Personal</a>
+                   
+                    <p>2/4</p>
+                </section>
+            </div>
+        </div>
+        <div class="row-3">
+            <div class="col-1-3">
+                <h3 class="done">42</h3>
+                <p>Done</p>
+            </div>
+            <div class="col-1-3">
+                <h3 class="postponed">42</h3>
+                <p>Postponed</p>
+            </div>
+            <div class="col-1-3">
+                <h3 class="pending">42</h3>
+                <p>Pending</p>
+            </div>
+        </div>
+        <div class="row-4">
+            <p class="prior">PRIORITIES FOR THIS WEEK</p>
+            <i class="fa fa-flag" id="prior-goal"></i>
+            <p style="color:rgb(18, 79, 170); text-align: center;">Set your priorities right for the week</p>
+            <ul id="UList-priority">
+            </ul>
+        </div>
+        <div class="row-4-2"><i class="fa fa-arrow-right" id="go-to-tasks" onclick="showtasks()"></i></div>
+            
+    </div>
+    <!--second column-->
+    <div class="col-2" id="col-two">
+        <div class="row-2-1">
+            <i class="fa fa-arrow-left" id="back-to-overview"></i>
+            <h3>Select a category of task</h3>
+        </div>
+        <div class="row-2-2">
+            <div class="col-2-1"><button class="btn-task-container" id="work-tasks-btn">work</button></div>
+            <div class="col-2-2"><button class="btn-task-container" id="home-tasks-btn">Home</button></div>
+            <div class="col-2-3"><button class="btn-task-container" id="personal-tasks-btn">Personal</button></div>
+        </div>
+        <!--work tasks-->
+        <div class="row-3-2" id="work-tasks">
+            <progress></progress>
+            <h3>Today's Work Tasks</h3>
+            <p id="date2">date</p>
+            <ul id="UList">
+            </ul>
+            <div class="row-4-2">
+                <i class="fa fa-check" class="trigger-add-task-container work-btn" onclick="triggeraddtaskcontainer()"></i>
+            </div>
+        </div>
+
+        <!--home task-->
+        <div class="row-3-2" id="home-tasks">
+            <progress></progress>
+            <h3>Today's Home Tasks</h3>
+            <p id="date3">date</p>
+            <ul id="UList1">
+            </ul> 
+            <div class="row-4-2">
+               <i class="fa fa-check" class="trigger-add-task-container" id="trigger-add-task-container" onclick="triggeraddtaskcontainer()"></i>
+            </div>
+        </div>
+        <!--personal task-->
+        <div class="row-3-2" id="personal-tasks">
+            <progress></progress>
+            <h3>Today's Personal Tasks</h3>
+            <p id="date4">date</p>
+            <ul id="UList2">
+            </ul>
+
+            <div class="row-4-2">
+               <i class="fa fa-check" class="trigger-add-task-container" id="trigger-add-task-container" onclick="triggeraddtaskcontainer()"></i>
+            </div>
+        </div>
+
+        <!--ends here-->
+    </div>
+    <!--third column-->
+    <div class="col-3" id="col-three">
+        <div class="icon-edit"><i class="fa fa-tasks" class="img-task-add" id="img-task-add"><i class="fa fa-edit"></i></i></div>
+        <div class="add-task-input" id="add-task-input">
+            <input type="text" placeholder="your item" id="input-task">
+            <button id="add-task-btn">Add Task</button>
+        </div>
+    </div>
+   </div>
+</div>
+   <script>
+             function currenttime(){
+            var date_and_time=new Date();
+            var date_and_time2=new Date();
+            var date_and_time3=new Date();
+            var date_and_time4=new Date();
+            var day=date_and_time.toLocaleDateString();
+            var day2=date_and_time2.toLocaleDateString();
+            var day3=date_and_time3.toLocaleDateString();
+            var day4=date_and_time4.toLocaleDateString();
+            document.getElementById("date").innerHTML=day ;
+            document.getElementById("date2").innerHTML=day2 ;
+            document.getElementById("date3").innerHTML=day3 ;
+            document.getElementById("date4").innerHTML=day4 ;
+}
+      currenttime();
+       //switch between add task container and the third colum that displays the app logo
+    const triggeraddtask=document.getElementById("trigger-add-task-container");
+    const addtaskinput=document.getElementById("add-task-input");
+    const imgtaskadd=document.getElementById("img-task-add");
+    function triggeraddtaskcontainer(){
+        if(imgtaskadd.style.display==="block"){
+            addtaskinput.style.display="block";
+            imgtaskadd.style.display="none";
+            columnthree.style.display="block";
+            columntwo.style.display="none";
+        }
+        else{
+            addtaskinput.style.display="none";
+            imgtaskadd.style.display="block";
+        }
+        
+    }
+
+           //append list
+        let createList=document.createElement("DIV");
+        let buttonadd=document.getElementById("add-task-btn");
+    buttonadd.addEventListener("click", appendList)
+    function appendList(){
+        let createList=document.createElement("DIV");
+        let inputValue=document.getElementById("input-task").value;
+        let listappend=document.createTextNode(inputValue);
+            createList.appendChild(listappend);
+            unlist=document.getElementById("UList").appendChild(createList);
+            createList.style.fontSize="30px";
+            createList.style.color="black";
+            createList.style.backgroundColor="rgb(245, 246, 247)";
+            createList.style.boxShadow="0px 4px 4px 0px rgba(18, 79, 170, 0.25)";
+            createList.style.borderRadius="10px";
+            createList.style.width="90%";
+            createList.style.padding="10px";
+            createList.style.marginBottom="10px";
+            columntwo.style.display="block";
+            columnthree.style.display="none";
+
+            if(hometasks.style.display==="block"){
+                unlist1=document.getElementById("UList1").appendChild(createList);
+            }
+            else if(personaltasks.style.display==="block"){
+                unlist2=document.getElementById("UList2").appendChild(createList);
+            }
+        
+        //append a checkbox to each list
+            var createcheckbox=document.createElement("INPUT");  
+            createList.appendChild(createcheckbox);
+            createcheckbox.setAttribute("type", "checkbox") ;
+            createcheckbox.style.float="left"
+            createcheckbox.style.width="30px";
+            createcheckbox.style.height="30px";
+            createcheckbox.style.backgroundColor="red";
+            var count=0;
+            createList.addEventListener("click", function(){
+           
+            if(createcheckbox.checked===true){
+                  createList.style.color="green";
+                  createList.style.textDecoration="white double line-through";
+              }
+              else{
+                  createList.style.color="black";
+                  createList.style.textDecoration="none";
+              }
+              
+
+           
+          })
+/* //prioritize button
+            var prioritize=document.createElement("button");
+            var prioritizeAppend=document.createTextNode("Prioritize");
+            var non_prioritizeAppend=document.createTextNode("less-Prioritize");
+            
+            prioritize.appendChild(prioritizeAppend);
+            createList.appendChild(prioritize);
+            
+            prioritize.className="prioritize-btn";
+            prioritize.addEventListener("click", addtopriority);
+              function addtopriority(){
+                ullistpriority.appendChild(createList);
+                prioritize.textContent="less prioritize"
+                if (ullistpriority.style.display==="block"){
+                
+                unlist.appendChild(createList);
+                  }
+            }*/
+                  //close button
+                  var createClose=document.createElement("SPAN");
+            var closeAppend=document.createTextNode("\u00D7");
+            createClose.appendChild(closeAppend);
+            createList.appendChild(createClose);
+
+            createClose.style.color="black";
+            createClose.style.float="right";  
+            createClose.style.cursor="pointer";
+            createClose.style.marginRight="20px";
+            createClose.style.fontSize="30px";
+
+            createClose.onclick=function(){
+            var div= this.parentElement;
+            div.style.display="none";
+        }
+         //minimize button
+         var createminimize=document.createElement("SPAN");
+            var minimizeAppend=document.createTextNode("-");
+            createminimize.appendChild(minimizeAppend);
+            createList.appendChild(createminimize);
+
+            createminimize.style.color="black";
+            createminimize.style.float="right";  
+            createminimize.style.cursor="pointer";
+            createminimize.style.marginRight="30px";
+            createminimize.style.fontSize="30px";
+
+            createminimize.onclick=function(){
+                if (createEndDate.style.display==="none" && labelEnd.style.display==="none" && labelStart.style.display==="none" && createStartDate.style.display==="none"){
+                    createEndDate.style.display="block";
+                    labelEnd.style.display="block";
+                    createStartDate.style.display="block";
+                    labelStart.style.display="block";
+                }
+                else{
+                    createEndDate.style.display="none";
+                    labelEnd.style.display="none";
+                    createStartDate.style.display="none";
+                    labelStart.style.display="none";
+                }
+             
+        }
+                //start time of tasks
+                var labelStart=document.createElement("H6");
+            createList.appendChild(labelStart);
+            labelStart.textContent="Start Time";
+        
+            var createStartDate=document.createElement("INPUT");  
+            createList.appendChild(createStartDate);
+
+            createStartDate.setAttribute("type", "time") ;
+            labelStart.style.color="blue";
+            createStartDate.style.float="right";
+            createStartDate.style.width="50%";
+            createStartDate.className="startdatelabel"
+            
+
+        //finish time of tasks
+
+            var labelEnd=document.createElement("H6");
+            createList.appendChild(labelEnd);
+            labelEnd.textContent="Finish Time";
+
+            var createEndDate=document.createElement("INPUT");  
+            createList.appendChild(createEndDate);
+
+            createEndDate.setAttribute("type", "time") ;
+            labelEnd.style.color="blue";
+            createEndDate.style.float="right";
+            
+            createEndDate.className="enddatelabel";
+     //prioritize button
+     var prioritize=document.createElement("button");
+            var prioritizeAppend=document.createTextNode("Prioritize");
+            var switchpriority=document.getElementById("prior-goal");
+            prioritize.className="prioritize-btn";
+            prioritize.appendChild(prioritizeAppend);
+            createList.appendChild(prioritize);
+
+            prioritize.style.float="right"; 
+            prioritize.addEventListener("click", prioritizeTasks);
+            var list_prioritize=document.getElementById("UList-priority");
+                function prioritizeTasks(){
+                    if(list_prioritize.style.display==="block"){
+                        
+                        prioritize.textContent="prioritize";
+                        priotitize.onclick=function(){
+                            unlist.appendChild(createList);
+                        }
+                       
+        }
+        else{
+            list_prioritize.appendChild(createList);
+                      prioritize.textContent="less prioritize";
+                      switchpriority.style.display="none";
+        }
+                 
+                }
+            /*prioritize button
+            var prioritize=document.createElement("button");
+            var prioritizeAppend=document.createTextNode("Prioritize");
+            var non_prioritizeAppend=document.createTextNode("less-Prioritize");
+            var ullistpriority=document.getElementById("UList-priority");
+            prioritize.appendChild(prioritizeAppend);
+            createList.appendChild(prioritize);
+            
+            prioritize.className="prioritize-btn";
+          
+            prioritize.addEventListener("click", addtopriority);
+              function addtopriority(){
+                ullistpriority.appendChild(createList);
+                prioritize.textContent="less prioritize"; 
+            }*/
+           
+             //postpone button
+            var postpone=document.createElement("button");
+            var postponeAppend=document.createTextNode("Postpone");
+            var non_prioritizeAppend=document.createTextNode("Do not Postpone");
+            postpone.appendChild(postponeAppend);
+            createList.appendChild(postpone);
+            postpone.className="postpone-btn";
+            postpone.onclick=function(){
+                postpone.textContent="Postponed";
+                postpone.style.backgroundColor="rgba(18, 79, 170, 0.5)";
+              
+            }
+           
+              
+            if (inputValue === ""){
+                alert("Field cant be left empty");
+                createList.style.display="none";
+        }
+            
+            else{
+                false;
+            }
+           
+           
+            }
+
+             //showtask onclicking the go to task button
+             let gototasks=document.getElementById("go-to-tasks");
+            var backtooverview=document.getElementById("back-to-overview");
+            let columnone=document.getElementById("col-one");
+            let columntwo=document.getElementById("col-two");
+            var columnthree=document.getElementById("col-three");
+           backtooverview.addEventListener("click", backtooverallview);
+           function backtooverallview(){
+                columnone.style.display="block";
+                columntwo.style.display="none";
+                columnthree.style.display="none";
+            }
+            function showtasks(){
+               columnone.style.display="none";
+               columntwo.style.display="block";
+               columnthree.style.display="none";
+            }
+            let worktasks=document.getElementById("work-tasks");
+            let worktasksbtn=document.getElementById("work-tasks-btn");
+            let hometasks=document.getElementById("home-tasks");
+            let hometasksbtn=document.getElementById("home-tasks-btn");
+            let personaltasks=document.getElementById("personal-tasks");
+            let personaltasksbtn=document.getElementById("personal-tasks-btn");
+            
+            //show work tasks
+            worktasksbtn.addEventListener("click", showworktasks);
+            function showworktasks(){
+                worktasks.style.display="block";
+                hometasks.style.display="none";
+                personaltasks.style.display="none";
+                worktasksbtn.style.borderBottom="2px solid black";
+                hometasksbtn.style.borderBottom="none";
+                personaltasksbtn.style.borderBottom="none";
+            }
+            //show home tasks
+            hometasksbtn.addEventListener("click", showhometasks);
+            function showhometasks(){
+                worktasks.style.display="none";
+                hometasks.style.display="block";
+                personaltasks.style.display="none";
+                hometasksbtn.style.borderBottom="2px solid black";
+                worktasksbtn.style.borderBottom="none";
+                personaltasksbtn.style.borderBottom="none";
+            }
+            //show personal tasks
+            personaltasksbtn.addEventListener("click", showpersonaltasks);
+            function showpersonaltasks(){
+                worktasks.style.display="none";
+                hometasks.style.display="none";
+                personaltasks.style.display="block";
+                personaltasksbtn.style.borderBottom="2px solid black";
+                worktasksbtn.style.borderBottom="none";
+                hometasksbtn.style.borderBottom="none"
+                
+            }
+          
+    </script>
+</body>
+</html>
