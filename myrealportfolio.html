@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fatimah Davies Front End Developer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        <style>
+            body, html{
+                margin:0;
+                padding:0;
+                height:100%;
+                background-color:rgb(236, 231, 231, 0.3);
+            }
+            #image-back{
+                width:100%;
+                height:300px;
+                display:flex;
+                justify-content: center;
+            }
+            .name{
+                color:rgb(247, 245, 241);
+               font-size:50px;
+               margin:auto;
+               font-weight:bolder;
+            }
+          .profession{
+            font-size:30px;
+            font-weight:bolder;
+          }
+            .ul{
+                display:flex;
+                flex-direction: row;
+                margin:auto;
+                padding-left:10px;
+            }
+            
+            .li .nav-list{
+                background-color:transparent;
+                border:none;
+                font-size:18px;
+                outline:none;
+                padding-left:20px;
+            }
+            .project-row-1{
+                display: flex;
+                flex-direction: row;
+                width:80%;
+                margin:auto;
+            }
+            .project-row-1-col-1, .project-row-1-col-2{
+                width:50%;
+                margin:auto;
+                padding:10px;    
+            }
+            #project-image-back{
+                width:100%;
+            }
+            .footer{
+                background-color: rgb(15, 15, 15);
+                color:rgb(255, 255, 255);
+                text-align: center;
+                font-size: 17px;
+                padding:1px;
+            }
+            #webdev, #myprofile{
+                display: none;
+            }
+            .my-photo{
+                height:300px;
+                width:300px;
+                border-radius: 50%;
+            }
+            .profile-row-1{
+                display: flex;
+                flex-direction: row;
+                width:80%;
+                margin:auto;
+            }
+            .about-me, .prof-pic{
+                width:50%;
+                margin:auto;
+                padding:10px;
+            }
+            .prof-pic{
+                text-align: center;
+            }
+            .about-me, .profile-row-2{
+                background-color:rgb(245, 246, 247);
+                box-shadow: 0px 4px 4px 0px rgba(18, 79, 170, 0.25);
+            }
+            .about-me p{
+                font-size: 18px;
+                padding:5px 15px 5px 15px;
+            }
+            .profile-row-2{
+                width:60%;
+                margin:auto;
+            }     
+            #skill-row{
+                display: flex;
+                flex-direction: row;
+                width:100%;
+                margin:auto;
+                padding-bottom: 20px;
+            }      
+            #skill-row-img{
+                height:10%;
+                width:45%;
+                margin:auto;
+            }
+            .profile-row-3{
+                display: flex;
+                flex-direction: row;
+                margin:auto;
+                width:80%;
+            }
+            .profile-row-3-col-1{
+                margin:auto;
+            }
+            #work-experience{
+                display: flex;
+                flex-direction: column;
+            }
+            #work-experience li{
+                list-style-type: none;
+                font-size:20px;
+                width:100%;
+            }
+            #profile-btn{
+                border-bottom: 2px solid black;
+            }
+            #contact-head{
+            text-align: center;
+            font-size:30px;
+            }
+            #mycontact{
+                display: none;
+            }
+            form{
+                text-align: center;
+                padding-top:30px;
+            }
+            form input, textarea{
+                width:40%;
+                margin:auto;
+                padding:10px;
+                margin-bottom:15px;
+                margin-top:15px;
+                background-color: rgb(222, 226, 226);
+                border-radius: 5px;
+            }
+            textarea{
+                height:50%;
+                margin-top:15px;
+            }
+            #submit-btn{
+                background-color:rgb(10, 10, 10);
+                color:#ffffff;
+                border-radius: 10px;
+            }
+            .contact-row-2{
+                background-color:rgb(245, 246, 247);
+                box-shadow: 0px 4px 4px 0px rgba(18, 79, 170, 0.25);
+                width:60%;
+                margin:auto;
+                text-align: center;
+                font-size:20px;
+            }
+            a{
+                text-decoration: none;
+            }
+            @media screen and (max-width:600px){
+             
+                .project-row-1, .profile-row-1, .profile-row-2, .profile-row-3{
+                    flex-direction: column;
+                }
+                .project-row-1-col-1, .project-row-1-col-2, .about-me, .prof-pic, #webdev, #myprofile{
+                    width:100%;
+                    padding-left:0;
+                    padding-right:0;
+                }
+                .about-me p{
+                font-size: 17px;
+                padding:5px 25px 5px 25px;
+            }
+            .project-row-1-col-1, .project-row-1-col-2, .about-me, .prof-pic, form input, textarea{
+                width:80%;
+            }
+            form{
+                padding-top:30px;
+            }
+           
+            .my-photo{
+                height:200px;
+                width:200px;
+                border-radius: 50%;
+            }
+            .profile-row-2, .profile-row-1, .profile-row-3{
+                width:90%;
+                margin:auto;
+            }
+            .profile-row-1 .about-me, .profile-row-3-col-1 .work-experience{
+                width:95%;
+            }
+            .profile-row-1, #webdev, #designs{
+                margin-top:20px;
+            }
+            }
+            @media screen and (max-width:420px){
+                .project-row-1-col-1, .project-row-1-col-2, .about-me, .prof-pic, form input, textarea{
+                width:60%;
+            }
+            .my-photo{
+                height:150px;
+                width:150px;
+                border-radius: 50%;
+            }
+            .profile-row-2, .profile-row-1, .profile-row-3, #mycontact, form, form input, textarea, .contact-row-2{
+                width:95%;
+                margin:auto;
+            }
+            .profile-row-1 .about-me, .profile-row-3-col-1 .work-experience, #webdev, #myprofile, .project-row-1{
+                width:100%;
+            }
+            .profile-row-1, #webdev, #designs{
+                margin-top:20px;
+            }
+            .project-row-1-col-1{
+                width:80%;
+            }
+            .li .nav-list{
+                font-size:15px;
+            }
+            form input, textarea{
+                margin-bottom:10px;
+                margin-top:10px;
+            }
+            textarea{
+                margin-top:15px;
+            }
+          
+            }
+            
+            #dropdown-list{
+                width:30%; background-color:rgb(245, 246, 247);
+                box-shadow: 0px 4px 4px 0px rgba(18, 79, 170, 0.25);
+                display: none;
+                margin-left:140px;
+            }
+            .icons-back{
+                background-image: url("images/back2.JPG");
+                opacity:0.4;
+                background-size: cover;
+                height:400px;;
+                background-repeat: no-repeat;
+                display: flex;
+                justify-content: center;
+            }
+            .nav-head{
+                width:100%;
+            }
+            #webdev-btn, #design-btn{
+                color:#000000;
+                font-size:16px;
+                padding:10px;
+            }
+           
+           #designs, #webdev{
+               display:none;
+           }
+           #myprofile{
+               display: block;
+           }
+           .contactBtn{
+            background-color:transparent;
+           }
+           .myContact{
+            animation-name:slide;
+            animation-duration:0.2s;
+           }
+           .profilePage{
+            animation-name:slide2;
+            animation-duration:0.2s;
+           }
+           .designsProject{
+            animation-name:slide3;
+            animation-duration:0.8s;
+           }
+           .webProject{
+            animation-name:slide4;
+            animation-duration:0.8s; 
+           }
+           @keyframes slide{       
+           0% {
+            transform: translatex(-100px);
+        }
+        }
+        @keyframes slide2{       
+           0% {
+            transform: translatex(100px);
+        }
+        }
+        @keyframes slide3{       
+           0% {
+            transform: translatey(100px);
+        }
+        }
+        @keyframes slide4{       
+           0% {
+            transform: translatey(-100px);
+        }
+    }
+    .fa-facebook, .fa-twitter, .fa-linkedin, .fa-github, .fa-figma{
+        color:rgb(4, 33, 97);
+    }
+    .contact-row-2 p a{
+        color:black;
+    }
+        </style>
+    </head>
+    <body>
+        
+        <div class="contaner-fluid-body">
+            <!--first row-->
+            <div class="icons-back">
+                <div class="name" style="text-align: center;">Fatimah Davies <p class="profession">Front End Developer And UI Designer</p></div>
+                
+            </div>
+            
+            <div class="nav-head">
+                <div class="ul">
+                        <div class="li"><button class="nav-list" id="profile-btn">My Profile</button></div>
+                    <div class="li">
+                        <button class="nav-list" id="all-projects-btn">Projects</button> 
+                        <span><i class="fa fa-angle-down" id="dropdown-btn"></i></span>
+                    </div>
+                    
+                    <div class="li"><button class="nav-list" id="contact-btn">My Contact</button></div>
+                </div>
+               
+            </div>
+            <div id="dropdown-list">
+                    <div class="li"><button class="nav-list" id="webdev-btn">Web Projects</button></div>
+                    <div class="li"><button class="nav-list" id="design-btn">Design Projects</button></div>
+
+                </div>
+            <!--second-row designs-->
+<div id="designs">
+            <div class="project-row-1">
+                <div class="project-row-1-col-1"><a href=""><img src="images/freedom2.jpg" id="project-image-back"></a></div>
+                <div class="project-row-1-col-1"><a href=""><img src="images/littleangel.jpg" id="project-image-back"></a></div>
+            </div>
+            <div class="project-row-1">
+                <div class="project-row-1-col-1"><a href=""><img src="images/ride.jpg" id="project-image-back"></a></div>
+                <div class="project-row-1-col-1"><a href=""><img src="images/settings.jpg" id="project-image-back"></a></div>
+            </div>
+            <div class="project-row-1">
+                <div class="project-row-1-col-1"><a href=""><img src="images/Lucid Blog prototype(Hng first task).jpg" id="project-image-back"></a></div>
+                <div class="project-row-1-col-1"><a href=""><img src="images/stopwatch1.jpg" id="project-image-back"></a></div>
+            </div>
+            <div class="project-row-1">
+                <div class="project-row-1-col-1"><a href=""><img src="images/natuedesktop.jpg" id="project-image-back"></a></div>
+                <div class="project-row-1-col-1"><a href=""><img src="images/calculator2.jpg" id="project-image-back"></a></div>
+            </div>
+            <div class="project-row-1">
+                <div class="project-row-1-col-1"><a href=""><img src="images/404page.png" id="project-image-back"></a></div>
+                <div class="project-row-1-col-1"><a href=""><img src="images/profile2.jpg" id="project-image-back"></a></div>
+            </div>
+    </div>
+<!--third row websites-->
+            <div id="webdev">
+                <div class="project-row-1">
+                    <div class="project-row-1-col-1"><img src="images/freedom2.jpg" id="project-image-back"></div>
+                    <div class="project-row-1-col-1"><img src="images/freedom2.jpg" id="project-image-back"></div>
+                </div>
+                <div class="project-row-1">
+                    <div class="project-row-1-col-1"><img src="images/ride.jpg" id="project-image-back"></div>
+                    <div class="project-row-1-col-1"><img src="images/settings.jpg" id="project-image-back"></div>
+                </div>
+                <div class="project-row-1">
+                    <div class="project-row-1-col-1"><img src="images/Lucid Blog prototype(Hng first task).jpg" id="project-image-back"></div>
+                    <div class="project-row-1-col-1"><img src="images/stopwatch1.jpg" id="project-image-back"></div>
+                </div>
+                <div class="project-row-1">
+                    <div class="project-row-1-col-1"><img src="images/natuedesktop.jpg" id="project-image-back"></div>
+                    <div class="project-row-1-col-1"><img src="images/calculator2.jpg" id="project-image-back"></div>
+                </div>
+                <div class="project-row-1">
+                    <div class="project-row-1-col-1"><img src="images/404page.png" id="project-image-back"></div>
+                    <div class="project-row-1-col-1"><img src="images/profile2.jpg" id="project-image-back"></div>
+                </div>
+            </div>
+            <!--fourth row websites-->
+            <div id="myprofile">
+                    <div class="profile-row-1">
+                        <div class="about-me"><p>My name is Fatimah Davies. A graduate of the Lagos State Polytechnic In Computer
+                             science department. I am a Font End Developer Who takes mobile responsiveness of web pages to heart. 
+                            I ensure Optimal Responsiveness of web pages</p></div>
+                        <div class="prof-pic"><img src="images/my-photo.jpg" class="my-photo"></div>
+                    </div>
+                    <h2 style="text-align: center;">Skills</h2>
+                    <div class="profile-row-2">                        
+                        <div id="skill-row">
+                            <img src="images/htmllogo.png" id="skill-row-img">
+                            <img src="images/react-1.svg" id="skill-row-img">
+                        </div>
+                        <div id="skill-row">
+                            <img src="images/bootstrap-4.svg" id="skill-row-img">
+                            <img src="images/jquery-1.svg" id="skill-row-img">
+                        </div>
+                        <div id="skill-row">
+                            <img src="images/javascript-1.svg" id="skill-row-img">
+                            <img src="images/css-3.svg" id="skill-row-img">
+                        </div>
+                    </div>
+                    
+                    <div class="profile-row-3">  
+                                              
+                        <div class="profile-row-3-col-1">
+                                <h2 style="text-align: center;">My Work Experience</h2>
+                            <ul id="work-experience">
+                                <li style="padding-bottom:30px;"><h3>2019 HNG 6.0 Intern</h3> <p><strong>Front End Track</strong></p>I was able to collaborate with team members from different states
+                                    remotely in which I participated in all weekly tasks that were assigned
+                                     to us. And I was able to take up the role of a team lead during the 3 months internship.<br/> 
+                                   <strong>Certificate of proof: in view</strong></p></li>
+                                <li><h3>2019 HNG 6.0 Intern</h3> <p><strong>Front End Track</strong></p>I was able to collaborate with team members from different states
+                                    remotely in which I participated in all weekly tasks that were assigned
+                                     to us. And I was able to take up the role of a team lead during the 3 months internship.<br/> 
+                                   <strong>Certificate of proof: in view</strong></p></li>
+                            </ul>
+                        </div>
+                        <div class="profile-row-3-col-1">
+                            <ul id="work-experience">
+                                <li style="padding-bottom:30px;"><h3>2019 HNG 6.0 Intern</h3> <p><strong>Front End Track</strong></p>I was able to collaborate with team members from different states
+                                    remotely in which I participated in all weekly tasks that were assigned
+                                     to us. And I was able to take up the role of a team lead during the 3 months internship.<br/> 
+                                   <strong>Certificate of proof: in view</strong></p></li>
+                                <li><h3>2019 HNG 6.0 Intern</h3> <p><strong>Front End Track</strong></p>I was able to collaborate with team members from different states
+                                    remotely in which I participated in all weekly tasks that were assigned
+                                     to us. And I was able to take up the role of a team lead during the 3 months internship.<br/> 
+                                   <strong>Certificate of proof: in view</strong></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="profile-row-4">
+                      
+                    </div>
+                    <div class="profile-row-5">
+                        
+                    </div>
+                </div>
+                <!--contact me page-->
+                <div id="mycontact">
+                    <h1 id="contact-head">For your websites <br>I am not far from you</h1>
+                    <div class="contact-row-1">
+                        <form method="POST" action="https://formspree.io/moqjykeo">
+                            <input type="text" placeholder="&#xF007; your full name" name="name"><br/>
+                            <input type="email" placeholder="&#xF0e0; Email Address" name="_replyto"><br/>
+                            <textarea rows="10" placeholder="Start Your Message" name="message"></textarea><br/>
+                            <input type="submit" id="submit-btn">
+                        </form>
+                    </div>
+                    <div class="contact-row-2">
+                        <h3>Reach out to me via</h3>
+                        <p><a href="https://facebook.com/omowonuola-davies">Facebook</a></p>
+                        <a href="https://facebook.com/omowonuola-davies"><i class="fa fa-facebook"></i></a>
+                        <p><a href="https://twitter.com/daviesfatimah2">Twitter</a></p>
+                        <a href="https://twitter.com/daviesfatimah2"><i class="fa fa-twitter"></i></a>
+                        <p><a href="https://instagram.com/fatimah">Linkedin</a></p>
+                        <a href="https://instagram.com/fatimah"><i class="fa fa-linkedin"></i></a>
+
+                        <h3>Check out my profiles</h3>
+                        <p><a href="https://github.com/Fatimah019">Github</a></p>
+                        <a href="https://github.com/Fatimah019"><i class="fa fa-github"></i></a>
+                        <p><a href="https://figma.com/Fatimah_Davies">Figma</a></p>
+                        <a href="https://figma.com/Fatimah_Davies"><i class="fa fa-figma"></i></a>
+                    </div>
+                </div>
+            <div class="footer">
+                <footer>
+                    <p>Copyright<span id="date" style="margin-left:10px; margin-right: 10px;">Date</span>Fatimah_Designs</p>
+                    <p>+234 708 878 0115 <span style="margin-left:10px;">Lagos, Nigeria.</span></p>
+                </footer>
+            </div>
+        </div>
+
+        <script>
+            function currentyear(){
+            var year=new Date();
+            var yearSpecific=year.getFullYear();
+            document.getElementById("date").innerHTML=yearSpecific ;
+            }
+            currentyear();
+
+            let designsProject=document.getElementById("designs");
+            let webdevProject=document.getElementById("webdev");
+            let profilepage=document.getElementById("myprofile");
+            let myContact=document.getElementById("mycontact");
+            let dropdownList=document.getElementById("dropdown-list");
+
+            let designBtn=document.getElementById("design-btn");
+            let webdevBtn=document.getElementById("webdev-btn");
+            let profilepageBtn=document.getElementById("profile-btn");
+            let contactBtn=document.getElementById("contact-btn");
+            let dropdownBtn=document.getElementById("dropdown-btn");
+            let allprojectsBtn=document.getElementById("all-projects-btn");
+
+           designBtn.onclick=function(){
+            designsProject.style.display="block";
+            webdevProject.style.display="none";
+            profilepage.style.display="none";
+            myContact.style.display="none";
+            webdevBtn.style.borderBottom="none";
+            profilepageBtn.style.borderBottom="none";
+            contactBtn.style.borderBottom="none";
+            dropdownList.style.display="none";
+            allprojectsBtn.style.borderBottom="2px solid black";
+            allprojectsBtn.textContent="Designs"
+            designsProject.className="designsProject";
+           }
+           dropdownBtn.onclick=function(){
+               if (dropdownList.style.display==="block"){
+                dropdownList.style.display="none";
+
+               }
+                else{
+                    dropdownList.style.display="block";
+                    allprojectsBtn.style.borderBottom="2px solid black";
+                    contactBtn.style.borderBottom="none";
+            designBtn.style.borderBottom="none";
+            webdevBtn.style.borderBottom="none";
+            profilepageBtn.style.borderBottom="none";
+                }
+           } 
+
+           webdevBtn.onclick=function(){
+            designsProject.style.display="none";
+            webdevProject.style.display="block";
+            profilepage.style.display="none";
+            myContact.style.display="none";
+            designBtn.style.borderBottom="none";
+            profilepageBtn.style.borderBottom="none";
+            contactBtn.style.borderBottom="none";
+            dropdownList.style.display="none";
+            allprojectsBtn.style.borderBottom="2px solid black";
+            allprojectsBtn.textContent="Web"
+            webdevProject.className="webProject";
+           }
+           profilepageBtn.onclick=function(){
+            profilepage.style.display="block";
+            designsProject.style.display="none";
+            webdevProject.style.display="none";
+            myContact.style.display="none";
+            profilepageBtn.style.borderBottom="2px solid black";
+            webdevBtn.style.borderBottom="none";
+            designBtn.style.borderBottom="none";
+            contactBtn.style.borderBottom="none";
+            dropdownList.style.display="none";
+            allprojectsBtn.style.borderBottom="none";
+            profilepage.className="profilePage"
+            allProjects.className="allProjects";
+           }
+           contactBtn.onclick=function(){
+            myContact.style.display="block";
+            designsProject.style.display="none";
+            webdevProject.style.display="none";
+            profilepage.style.display="none";
+            contactBtn.style.borderBottom="2px solid black";
+            designBtn.style.borderBottom="none";
+            webdevBtn.style.borderBottom="none";
+            profilepageBtn.style.borderBottom="none";
+            dropdownList.style.display="none";
+            allprojectsBtn.style.borderBottom="none";
+            myContact.className="myContact";
+           }
+            
+
+        </script>
+
+    </body>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5e0c835827773e0d832b63ca/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</html>
+
+
