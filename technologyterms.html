@@ -182,6 +182,7 @@
             <!--networking terms-->
             <div id="network-terms-container">
             <section class="terms">Network Cables<span><i class="fa fa-angle-down"></i></span></section>
+            
             <section class="terms">Crimpling<span><i class="fa fa-angle-down"></i></span></section>
             <section class="terms">Hub<span><i class="fa fa-angle-down"></i></span></section>
             <section class="terms">LAN<span><i class="fa fa-angle-down"></i></span></section>
@@ -305,7 +306,21 @@
            }
            let networkBtn=document.getElementById("network-btn").addEventListener("click", showNetworkTopic);
 
+            //close faq button
+           const closeFaq=()=>{
+               if (faqContainer.style.display==="block" || aiContainer.style.display==="none"){
+                faqContainer.style.display="none";
+                aiContainer.style.display="block";
+           }
+           else{
+            faqContainer.style.display="block";
+                aiContainer.style.display="none";
+           }}
+           let closefaqBtn=document.getElementById("close-faq").addEventListener("click", closeFaq);
 
+           if (closefaqBtn.onclick===true && aiContainer.style.display==="block"){
+
+           }
         </script>
     </body>
 </html>
