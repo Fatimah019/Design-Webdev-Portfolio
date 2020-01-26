@@ -11,6 +11,8 @@
         <style>
             html{
                 height:100%;
+                background-repeat: no-repeat;
+                background-size: cover;
             }
             body{
                 background:linear-gradient(120deg, rgba(20, 50, 100, 0.5)0% ,rgba(211, 119, 33, 0.8)50%, rgba(100, 50, 100, 0.7)100%);
@@ -37,10 +39,10 @@
            #quotes-container{
                text-align:center;
                margin-top:40%;
-               font-size:40px;
+               font-size:25px;
            }
            #getstarted{
-               background-color:rgb(92, 92, 241);
+               background-color:rgb(59, 38, 31, 0.8);
                color:white;
                padding:15px;
                font-size:28px;
@@ -66,17 +68,14 @@
                display: none;
            }
            .faq-sects{
-               background-color: rgb(94, 94, 189);
+               background-color: rgb(59, 38, 31, 0.8);
                margin-top:20px;
                padding:10px;
                font-size: 20px;
                color:#ffffff;
                border-radius: 10px;
            }
-           .fa-question{
-                padding-left:55%;
-                position:fixed;
-           }
+          
            #answer-1{
                background-color:rgb(37, 196, 196);
                display:none;
@@ -109,10 +108,11 @@
                border-radius: 10px;
                margin:5px;
            }
-           .ai-terms-container{
+           #ai-terms-container, #web-terms-container, #network-terms-container{
                text-align: left;
+               display: none;
            }
-           .ai-terms{
+           .terms{
                background-color:white;
                font-size:20px;
                padding:5px;
@@ -120,7 +120,15 @@
                margin-top:10px;
                text-align: center;
                width:70%;
-               
+           }
+           #show-case{
+               margin:auto;
+               width:80%;
+               font-size:20px;
+           }
+           .fa-close{
+               font-size:30px;
+               float:right;
            }
         </style>
     </head>
@@ -143,28 +151,48 @@
         </div>
         <!--quotes container-->
         <div id="quotes-container">
-            <p id="quotes">default quote</p>
+            <p id="quotes">We are stuck with technology when what we really want is just stuff that works.</p>
             <button id="getstarted">Get Started</button>
         </div>
         <!--gettin started page-->
         <div id="get-started-page">
+                <i class="fa fa-arrow-left">back</i>
             <ul id="ul">
-                <li>AI</li>
-                <li>Web</li>
-                <li>Networking</li>
+                <li id="ai-btn">AI</li>
+                <li id="web-btn">Web</li>
+                <li id="network-btn">Networking</li>
             </ul>
 
             <!--ai terms-->
             <div id="ai-terms-container">
-            <section class="ai-terms">Neural Network<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="ai-terms">Neuron<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="ai-terms">Weight<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="ai-terms">Prediction<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="ai-terms">Machine Leraning<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Neural Network<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Neuron<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Weight<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Prediction<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Machine Leraning<span><i class="fa fa-angle-down"></i></span></section>
             </div>
+            <!--web terms-->
+            <div id="web-terms-container">
+            <section class="terms">Http<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Front-End<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Back-End<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Html<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Javascript<span><i class="fa fa-angle-down"></i></span></section>
+            </div>
+            <!--networking terms-->
+            <div id="network-terms-container">
+            <section class="terms">Network Cables<span><i class="fa fa-angle-down"></i></span></section>
+            
+            <section class="terms">Crimpling<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Hub<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">LAN<span><i class="fa fa-angle-down"></i></span></section>
+            <section class="terms">Internet<span><i class="fa fa-angle-down"></i></span></section>
+            </div>
+            <div id="show-case">
             <i class="fa fa-desktop"></i>
             <p>It's Lonely down here. Select a field you want to know about. Get familiar with som eterms and stay happy. cheers</p>
             <p>news about technology should be displaye here by fetching an api data later</p>
+            </div>
         </div>
         <div id="faq">
             <p>Get Answers to asked questions</p>
@@ -173,6 +201,7 @@
 
         <!--frequently asked questions-->
         <div id="faq-container">
+                <span><i class="fa fa-close" id="close-faq"></i></span>
             <h3>Frequently asked questions</h3>
             <div id="questions-stack">
                 <section id="quest-0" class="faq-sects">first question <span><i class="fa fa-question"></i></span></section>
@@ -190,14 +219,19 @@
         <script>
             //dipslay education purpose random quotes
             let quoteContainer=document.getElementById("quotes");
-            let myquotes=["hello", "hi"];
+            let myquotes=[" Science and technology revolutionize our lives, but memory, tradition and myth frame our response.", 
+            "The art challenges the technology, and the technology inspires the art",
+            "If we continue to develop our technology without wisdom or prudence, our servant may prove to be our executioner.",
+            "The real danger is not that computers will begin to think like men, but that men will begin to think like computers",
+            "This is the whole point of technology.  It creates an appetite for immortality on the one hand.  It threatens universal extinction on the other. Technology is lust removed from nature",
+            "Technology made large populations possible; large populations now make technology indispensable."];
 
             const displayQuotes=()=>{
                 let randomquotes=Math.floor(Math.random() * myquotes.length);
                 quoteContainer.innerHTML=myquotes[randomquotes];
                 window.onload(displayQuotes);
             }
-            setInterval(displayQuotes, 2000);
+            setInterval(displayQuotes, 4000);
             //initialize all ids
             let homeLink=document.getElementById("home-link");
             let aboutPage=document.getElementById("about-page");
@@ -205,6 +239,10 @@
             let quotesContainer=document.getElementById("quotes-container");
             let faqBtn=document.getElementById("faq-btn");
             let getStartedPage=document.getElementById("get-started-page");
+            let aiContainer=document.getElementById("ai-terms-container");
+            let webContainer=document.getElementById("web-terms-container");
+            let networkContainer=document.getElementById("network-terms-container");
+            let showbeforetopics=document.getElementById("show-case");
            /* let quest1=document.getElementById("quest-0");
             let quest2=document.getElementById("quest-1");
             let quest3=document.getElementById("quest-2");
@@ -242,7 +280,47 @@
             }
             let faq=document.getElementById("faq-btn").addEventListener("click", displayFaq);
 
-           
+          
+           //show ai topics
+           const showAiTopic=()=>{
+               showbeforetopics.style.display="none";
+               aiContainer.style.display="block";
+               webContainer.style.display="none";
+               networkContainer.style.display="none";
+           }
+           let aiBtn=document.getElementById("ai-btn").addEventListener("click", showAiTopic);
+           //show web topics
+           const showWebTopic=()=>{
+               showbeforetopics.style.display="none";
+               webContainer.style.display="block";
+               aiContainer.style.display="none";
+               networkContainer.style.display="none";
+           }
+           let webBtn=document.getElementById("web-btn").addEventListener("click", showWebTopic);
+           //show network topics
+           const showNetworkTopic=()=>{
+               showbeforetopics.style.display="none";
+               networkContainer.style.display="block";
+               webContainer.style.display="none";
+               aiContainer.style.display="none";
+           }
+           let networkBtn=document.getElementById("network-btn").addEventListener("click", showNetworkTopic);
+
+            //close faq button
+           const closeFaq=()=>{
+               if (faqContainer.style.display==="block" || aiContainer.style.display==="none"){
+                faqContainer.style.display="none";
+                aiContainer.style.display="block";
+           }
+           else{
+            faqContainer.style.display="block";
+                aiContainer.style.display="none";
+           }}
+           let closefaqBtn=document.getElementById("close-faq").addEventListener("click", closeFaq);
+
+           if (closefaqBtn.onclick===true && aiContainer.style.display==="block"){
+
+           }
         </script>
     </body>
 </html>
