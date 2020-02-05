@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fatimah Davies Front End Developer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        <style>
+            html{
+                height:100%;
+            }
+            body{
+                background:linear-gradient(40deg, rgba(2, 0, 36, 1)0%, rgba(5, 9,121, 0.5)60%, rgba(0, 112, 255, 0.9)80%, rgba(0, 12, 55, 0.9)100%);
+            }
+           #display-api{
+               display: flex;
+               flex-direction: row;
+           }
+           .container{
+               color:white;
+           }
+           .card{
+               border:10px solid red;
+           }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="display-api"></div>
+        </div>
+
+        <script>
+            /*var request=new XMLHttpRequest();
+            request.open('GET', 'https://api.tvmaze.com/search/shows/?q=batman', true);
+            request.onload=function(){
+                var data=JSON.parse(this.response)
+                data.forEach(show=>{
+                    console.log(show.shows);
+                })
+            }
+            request.send();
+     ......................................
+  const ul = document.getElementById('display-api');
+  const url = fetch('https://ghibliapi.herokuapp.com/films');
+  url.then(response=>{
+      return response.json();
+  })
+  .then(films=>{
+      const titles=films.map(movieinfo=>movieinfo.title);
+   
+    ul.innerHTML=titles;
+  })
+  
+  apikey=XJI0f4UhNcHVYWaol4K-nkl7RJKUnRoX
+  ................................
+*/
+
+
+    /*     const url = fetch('http://api.tvmaze.com/shows');
+
+         url.then(response=>{
+      return response.json();
+  })
+         .then(shows=>{
+      const movieinfo=shows.map(show=>show.name);
+      //display in a container
+      const ul = document.getElementById('display-api');
+      const container=document.createElement('div');
+      
+
+      ul.appendChild(container);
+container.setAttribute('class', 'container');
+        
+         
+    ul.innerHTML=movieinfo;
+
+
+         });*/
+         /*const ul = document.getElementById('display-api');
+
+const url = fetch('http://api.tvmaze.com/shows');
+url.then(response=>{
+    return response.json();
+})
+.then(showsinfo=>{
+    console.log(showsinfo);
+})
+
+const url=fetch("https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=dict.1.1.20200125T211954Z.52de181813083a26.4b1b4db13b4f9325f5ca7ca3d411203e63208cfe&lang=ru-en&text=time");
+url.then(response=>{
+    return response.json();
+})
+.then(lookup=>{
+      const movieinfo=lookup.map(defs=>def.text);
+      //display in a container
+      console.log(movieinfo);
+});*/
+
+const app = document.getElementById('display-api');
+const theContainer=document.createElement('div');
+theContainer.setAttribute('class', 'container');
+app.appendChild(theContainer);
+
+const url=fetch("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5aee483e492d4eaa9fa09699647bf49d");
+url.then(response=>{
+    return response.json();
+})
+
+.then(data=>{
+      const newstitle= data.articles.map(item=>item.title);
+      const newsdescription= data.articles.map(item=>item.description);
+      //display in a container
+const cardList=document.createElement('div');
+cardList.setAttribute('class', 'card');
+
+    
+const headTitle=document.createElement("h2");
+headTitle.setAttribute('class', 'headtitle');
+headTitle.textContent=newstitle;
+
+const para=document.createElement('p');
+para.setAttribute('class', 'para');
+para.textContent=newsdescription;
+
+theContainer.appendChild(cardList);
+cardList.appendChild(headTitle);
+cardList.appendChild(para);
+
+      });
+      /*console.log(url);
+
+      
+const url=fetch("https://api.ipapi.com/api/fatimahdavieswebdeveloper.netlify.com/myrealportfolio.html/?access_key=d55d4e86228427b4bcea9f037a9e27ca&fields=city");
+
+url.then(response=>{
+    return response.json();
+})
+    console.log(url.city);*/
+
+    
+
+
+</script>
+    </body>
+</html>
