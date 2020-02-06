@@ -13,6 +13,7 @@
                 height:100%;
                 background-repeat: no-repeat;
                 background-size: cover;
+                background-position: center;
             }
             body{
                 background:linear-gradient(120deg, rgba(20, 50, 100, 0.5)0% ,rgba(211, 119, 33, 0.8)50%, rgba(100, 50, 100, 0.7)100%);
@@ -130,6 +131,28 @@
                font-size:30px;
                float:right;
            }
+           #test-class{
+               display: none;
+           }
+
+
+           #display-api{
+               display: flex;
+               flex-direction: row;
+           }
+           .container{
+               color:white;
+               display: flex;
+               flex-direction:column;
+           }
+           .card{
+               border:5px solid #ffffff;
+               border-radius:5px;
+               margin-bottom: 10px;
+           }
+           .para{
+               justify-items: left;
+           }
         </style>
     </head>
     <body>
@@ -189,9 +212,9 @@
             <section class="terms">Internet<span><i class="fa fa-angle-down"></i></span></section>
             </div>
             <div id="show-case">
-            <i class="fa fa-desktop"></i>
-            <p>It's Lonely down here. Select a field you want to know about. Get familiar with som eterms and stay happy. cheers</p>
-            <p>news about technology should be displaye here by fetching an api data later</p>
+            <div class="container">
+                <div id="display-api"></div>
+            </div>
             </div>
         </div>
         <div id="faq">
@@ -217,6 +240,44 @@
 
 
         <script>
+        const app = document.getElementById('display-api');
+const theContainer=document.createElement('div');
+theContainer.setAttribute('class', 'container');
+app.appendChild(theContainer);
+ var request=new XMLHttpRequest();
+            request.open('GET', 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5aee483e492d4eaa9fa09699647bf49d', true);
+            request.onload=function(){
+                var data=JSON.parse(this.response)
+                data.articles.forEach(item=>{
+                     //display in a container
+ const cardList=document.createElement('div');
+cardList.setAttribute('class', 'card');
+
+    
+const headTitle=document.createElement("h2");
+headTitle.setAttribute('class', 'headtitle');
+headTitle.textContent=item.title;
+
+const para=document.createElement('p');
+para.setAttribute('class', 'para');
+para.textContent=item.description;
+
+const viewmorelink=document.createElement('a');
+viewmorelink.setAttribute('href', 'viewmore');
+viewmorelink.textContent=item.content;
+
+theContainer.appendChild(cardList);
+cardList.appendChild(headTitle);
+cardList.appendChild(para);
+cardList.appendChild(viewmorelink);
+
+      });
+                
+            }
+            request.send();
+
+
+
             //dipslay education purpose random quotes
             let quoteContainer=document.getElementById("quotes");
             let myquotes=[" Science and technology revolutionize our lives, but memory, tradition and myth frame our response.", 
@@ -321,6 +382,9 @@
            if (closefaqBtn.onclick===true && aiContainer.style.display==="block"){
 
            }
+
+
+   
         </script>
     </body>
 </html>
