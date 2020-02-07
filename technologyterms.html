@@ -8,6 +8,7 @@
         <meta name="description" content="Technological words for those who are new in tech and wants to get familiarized with some words using in tech">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        <script src="json.js"></script>
         <style>
             html{
                 height:100%;
@@ -96,6 +97,8 @@
            #get-started-page{
                text-align: center;
                display: none;
+               margin:auto;
+               width:100%;
            }
            #ul{
                display: flex;
@@ -112,6 +115,7 @@
            #ai-terms-container, #web-terms-container, #network-terms-container{
                text-align: left;
                display: none;
+               width:100%;
            }
            .terms, .listquestions{
                background-color:white;
@@ -147,8 +151,16 @@
            }
            .card{
                border:5px solid #ffffff;
-               border-radius:5px;
+               border-radius:25px;
+               margin:auto;
                margin-bottom: 10px;
+               width:100%;
+           }
+           .headtitle{
+               background: rgb(90, 81, 81);
+               padding:0;
+               margin:0;
+               border-radius: 25px 25px 0px 0px;
            }
            .para{
                justify-items: left;
@@ -198,12 +210,7 @@
             </div>
             <!--networking terms-->
             <div id="network-terms-container">
-            <section class="terms">Network Cables<span><i class="fa fa-angle-down"></i></span></section>
-            
-            <section class="terms">Crimpling<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Hub<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">LAN<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Internet<span><i class="fa fa-angle-down"></i></span></section>
+                <p id="display-json-network"></p>
             </div>
             <div id="show-case">
             <div class="container">
@@ -258,8 +265,8 @@ para.setAttribute('class', 'para');
 para.textContent=item.description;
 
 const viewmorelink=document.createElement('a');
-viewmorelink.setAttribute('href', 'viewmore');
-viewmorelink.textContent=item.content;
+viewmorelink.setAttribute('href', item.urlToImage);
+viewmorelink.textContent="viewmore";
 
 theContainer.appendChild(cardList);
 cardList.appendChild(headTitle);
@@ -272,25 +279,6 @@ cardList.appendChild(viewmorelink);
             request.send();
 
 //call the words in jason data ai words
-const jsondata=[
-    {
-        "name":"firstword",
-        "meaning":"first word meaning"
-    },
-    {
-        "name":"second word",
-        "meaning":"second word meaning"
-    },
-    {
-        "name":"third word",
-        "meaning":"third word meaning"
-    },
-    {
-        "name":"fourth word",
-        "meaning":"fourth word meaning"
-    },
-]
-
 
 for (var items of jsondata){
    const divquestion=document.createElement("div");
@@ -302,9 +290,10 @@ for (var items of jsondata){
    listquestions.textContent=items.name;
    listquestions.addEventListener('click', showanswers);
    const answers=document.createElement('p');
+   answers.textContent=items.meaning;
+   answers.style.display="none";
         answers.setAttribute('class', 'answers');
    function showanswers(){
-        answers.textContent=items.meaning;
         if (answers.style.display==="block"){
             answers.style.display="none";
         }
@@ -324,39 +313,21 @@ for (var items of jsondata){
 }
 
 //call the words in jason data web words
-const jsondataweb=[
-    {
-        "name":"first web word",
-        "meaning":"first web word meaning"
-    },
-    {
-        "name":"second web word",
-        "meaning":"second web word meaning"
-    },
-    {
-        "name":"third web word",
-        "meaning":"third web word meaning"
-    },
-    {
-        "name":"fourthweb word",
-        "meaning":"fourth web word meaning"
-    },
-]
 
-
-for (var items of jsondataweb){
+for (var itemsweb of jsondataweb){
    const divquestion=document.createElement("div");
    divquestion.setAttribute('class', 'divquestion');
    const jsondatadisplay=document.getElementById("display-json-web");
     jsondatadisplay.appendChild(divquestion);
    const listquestions=document.createElement("h3");
    listquestions.setAttribute('class', 'listquestions');
-   listquestions.textContent=items.name;
-   listquestions.addEventListener('click', showanswers);
+   listquestions.textContent=itemsweb.name;
+   listquestions.addEventListener('click', showanswersweb);
    const answers=document.createElement('p');
+   answers.textContent=itemsweb.meaning;
+   answers.style.display="none";
         answers.setAttribute('class', 'answers');
-   function showanswers(){
-        answers.textContent=items.meaning;
+   function showanswersweb(){
         if (answers.style.display==="block"){
             answers.style.display="none";
         }
@@ -375,6 +346,39 @@ for (var items of jsondataweb){
   
 }
 
+//call the words in jason data networking words
+
+for (var itemsnet of jsondatanetwork){
+   const divquestion=document.createElement("div");
+   divquestion.setAttribute('class', 'divquestion');
+   const jsondatadisplay=document.getElementById("display-json-network");
+    jsondatadisplay.appendChild(divquestion);
+   const listquestions=document.createElement("h3");
+   listquestions.setAttribute('class', 'listquestions');
+   listquestions.textContent=itemsnet.name;
+   listquestions.addEventListener('click', showanswersnetwork);
+   const answers=document.createElement('p');
+   answers.textContent=itemsnet.meaning;
+        answers.setAttribute('class', 'answers');
+        answers.style.display="none";
+   function showanswersnetwork(){
+        if (answers.style.display==="block"){
+            answers.style.display="none";
+        }
+        else{
+            answers.style.display="block";
+        }
+   }
+    /*const spandropdown=document.createElement('span');
+    const buttondropdown=document.createElement('button');
+    buttondropdown.setAttribute('class', 'buttondropdown')
+    buttondropdown.textContent="dropdown";
+
+    spandropdown.appendChild(buttondropdown);*/
+   divquestion.appendChild(listquestions);
+   listquestions.appendChild(answers);
+  
+}
 
             //dipslay education purpose random quotes
             let quoteContainer=document.getElementById("quotes");
@@ -410,11 +414,15 @@ for (var items of jsondataweb){
 
  //display about page
             const displayAbout=()=>{
-                aboutPage.style.display="block";
-                faqContainer.style.display="none";
+                if(aboutPage.style.display="block"){
+                    faqContainer.style.display="none";
                 quotesContainer.style.display="none";
                 faqBtn.style.display="block";
                 getStartedPage.style.display="none";
+                }
+              else{
+                quotesContainer.style.display="block";
+              }
             }
             let aboutLink=document.getElementById("about-link").addEventListener("click", displayAbout);
            
@@ -428,11 +436,15 @@ for (var items of jsondataweb){
             //display faq container
             
             const displayFaq=()=>{
-                faqContainer.style.display="block";
-                quotesContainer.style.display="none";
+                if(faqContainer.style.display="block"){
+                    quotesContainer.style.display="none";
                 faqBtn.style.display="none";
                 aboutPage.style.display="none";
                 getStartedPage.style.display="none";
+                }
+               else{
+                   quotesContainer.style.display="block";
+               }
                 if ((aboutLink.onclick===true) || (homeLink.onclick===true)){
                     faqContainer.style.display="none";
                 }
@@ -477,12 +489,6 @@ for (var items of jsondataweb){
            }}
            let closefaqBtn=document.getElementById("close-faq").addEventListener("click", closeFaq);
 
-           if (closefaqBtn.onclick===true && aiContainer.style.display==="block"){
-
-           }
-
-
-   
         </script>
     </body>
 </html>
