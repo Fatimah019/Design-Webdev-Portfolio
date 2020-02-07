@@ -113,7 +113,7 @@
                text-align: left;
                display: none;
            }
-           .terms{
+           .terms, .listquestions{
                background-color:white;
                font-size:20px;
                padding:5px;
@@ -153,6 +153,7 @@
            .para{
                justify-items: left;
            }
+       
         </style>
     </head>
     <body>
@@ -161,6 +162,7 @@
         <div id="nav-head">
             <div id="home-link"><a href="">Home</a></div>
             <div id="about-link"><i class="fa fa-user" id="about-link"></i></div>
+           
         </div>
 
         <!--about page-->
@@ -188,19 +190,11 @@
 
             <!--ai terms-->
             <div id="ai-terms-container">
-            <section class="terms">Neural Network<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Neuron<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Weight<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Prediction<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Machine Leraning<span><i class="fa fa-angle-down"></i></span></section>
+                <p id="display-json"></p>
             </div>
             <!--web terms-->
             <div id="web-terms-container">
-            <section class="terms">Http<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Front-End<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Back-End<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Html<span><i class="fa fa-angle-down"></i></span></section>
-            <section class="terms">Javascript<span><i class="fa fa-angle-down"></i></span></section>
+                <p id="display-json-web"></p>
             </div>
             <!--networking terms-->
             <div id="network-terms-container">
@@ -240,6 +234,7 @@
 
 
         <script>
+            //call the news api
         const app = document.getElementById('display-api');
 const theContainer=document.createElement('div');
 theContainer.setAttribute('class', 'container');
@@ -276,6 +271,109 @@ cardList.appendChild(viewmorelink);
             }
             request.send();
 
+//call the words in jason data ai words
+const jsondata=[
+    {
+        "name":"firstword",
+        "meaning":"first word meaning"
+    },
+    {
+        "name":"second word",
+        "meaning":"second word meaning"
+    },
+    {
+        "name":"third word",
+        "meaning":"third word meaning"
+    },
+    {
+        "name":"fourth word",
+        "meaning":"fourth word meaning"
+    },
+]
+
+
+for (var items of jsondata){
+   const divquestion=document.createElement("div");
+   divquestion.setAttribute('class', 'divquestion');
+   const jsondatadisplay=document.getElementById("display-json");
+    jsondatadisplay.appendChild(divquestion);
+   const listquestions=document.createElement("h3");
+   listquestions.setAttribute('class', 'listquestions');
+   listquestions.textContent=items.name;
+   listquestions.addEventListener('click', showanswers);
+   const answers=document.createElement('p');
+        answers.setAttribute('class', 'answers');
+   function showanswers(){
+        answers.textContent=items.meaning;
+        if (answers.style.display==="block"){
+            answers.style.display="none";
+        }
+        else{
+            answers.style.display="block";
+        }
+   }
+    /*const spandropdown=document.createElement('span');
+    const buttondropdown=document.createElement('button');
+    buttondropdown.setAttribute('class', 'buttondropdown')
+    buttondropdown.textContent="dropdown";
+
+    spandropdown.appendChild(buttondropdown);*/
+   divquestion.appendChild(listquestions);
+   listquestions.appendChild(answers);
+  
+}
+
+//call the words in jason data web words
+const jsondataweb=[
+    {
+        "name":"first web word",
+        "meaning":"first web word meaning"
+    },
+    {
+        "name":"second web word",
+        "meaning":"second web word meaning"
+    },
+    {
+        "name":"third web word",
+        "meaning":"third web word meaning"
+    },
+    {
+        "name":"fourthweb word",
+        "meaning":"fourth web word meaning"
+    },
+]
+
+
+for (var items of jsondataweb){
+   const divquestion=document.createElement("div");
+   divquestion.setAttribute('class', 'divquestion');
+   const jsondatadisplay=document.getElementById("display-json-web");
+    jsondatadisplay.appendChild(divquestion);
+   const listquestions=document.createElement("h3");
+   listquestions.setAttribute('class', 'listquestions');
+   listquestions.textContent=items.name;
+   listquestions.addEventListener('click', showanswers);
+   const answers=document.createElement('p');
+        answers.setAttribute('class', 'answers');
+   function showanswers(){
+        answers.textContent=items.meaning;
+        if (answers.style.display==="block"){
+            answers.style.display="none";
+        }
+        else{
+            answers.style.display="block";
+        }
+   }
+    /*const spandropdown=document.createElement('span');
+    const buttondropdown=document.createElement('button');
+    buttondropdown.setAttribute('class', 'buttondropdown')
+    buttondropdown.textContent="dropdown";
+
+    spandropdown.appendChild(buttondropdown);*/
+   divquestion.appendChild(listquestions);
+   listquestions.appendChild(answers);
+  
+}
 
 
             //dipslay education purpose random quotes
