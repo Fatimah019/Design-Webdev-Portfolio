@@ -162,7 +162,35 @@
            .para{
                justify-items: left;
            }
+           #ai-terms-container,  #network-terms-container, .answers{
+               animation: slide;
+               animation-duration: 0.8s;
+           }
+            #web-terms-container{
+                animation: slide2;
+               animation-duration: 0.8s; 
+            }
+            .listquestions, .faqanswers{
+                animation:slide3;
+                animation-duration:0.8s;
+            }
+           @keyframes slide{       
+           0% {
+            transform: translatex(-100px);
+        }
+        }
+        @keyframes slide2{       
+           0% {
+            transform: translatex(100px);
+        }
        
+    }
+    @keyframes slide3{       
+           0% {
+            transform: translatey(100px);
+        }
+    }
+    
         </style>
     </head>
     <body>
@@ -190,7 +218,7 @@
         </div>
         <!--gettin started page-->
         <div id="get-started-page">
-                <i class="fa fa-arrow-left">back</i>
+                
             <ul id="ul">
                 <li id="ai-btn">AI</li>
                 <li id="web-btn">Web</li>
@@ -199,7 +227,8 @@
 
             <!--ai terms-->
             <div id="ai-terms-container">
-                <p id="display-json"></p>
+                <p id="display-json">
+                </p>
             </div>
             <!--web terms-->
             <div id="web-terms-container">
@@ -210,14 +239,16 @@
                 <p id="display-json-network"></p>
             </div>
             <div id="show-case">
+                    <h4 style="color:black;">Get the lastest in the tech world</h4>
             <div class="container">
+                    
                 <div id="display-api"></div>
             </div>
             </div>
         </div>
         <div id="faq">
             <p>Get Answers to asked questions</p>
-            <i class="fa fa-question-circle" id="faq-btn"></i>
+            <a href="#" id="faq-btn"><i class="fa fa-question-circle"></i></a>
         </div>
 
         <!--frequently asked questions-->
@@ -225,12 +256,13 @@
                 <span><i class="fa fa-close" id="close-faq"></i></span>
             <h3>Frequently asked questions</h3>
             <div id="questions-stack">
-                <section id="quest-0" class="faq-sects">first question <span><i class="fa fa-question"></i></span></section>
+               <!--<section id="quest-0" class="faq-sects">first question <span><i class="fa fa-question"></i></span></section>
                 <div id="answer-1">answer one</div>
                 <section id="quest-1" class="faq-sects">first question <span><i class="fa fa-question"></i></span></section>
                 <section id="quest-2" class="faq-sects">first question <span><i class="fa fa-question"></i></span></section>
                 <section id="quest-3" class="faq-sects">first question <span><i class="fa fa-question"></i></span></section>
                 <section id="quest-4" class="faq-sects">first question <span><i class="fa fa-question"></i></span></section>
+               -->
             </div>
         </div>
 
@@ -288,6 +320,7 @@ for (var items of jsondata){
    listquestions.addEventListener('click', showanswers);
    const answers=document.createElement('p');
    answers.textContent=items.meaning;
+   answers.setAttribute('class', 'answers');
    answers.style.display="none";
         answers.setAttribute('class', 'answers');
    function showanswers(){
@@ -322,6 +355,7 @@ for (var itemsweb of jsondataweb){
    listquestions.addEventListener('click', showanswersweb);
    const answers=document.createElement('p');
    answers.textContent=itemsweb.meaning;
+   answers.setAttribute('class', 'answers');
    answers.style.display="none";
         answers.setAttribute('class', 'answers');
    function showanswersweb(){
@@ -377,6 +411,41 @@ for (var itemsnet of jsondatanetwork){
   
 }
 
+//call the words in jason data frequently askd questions
+
+for (var itemsfaq of jsondatafaq){
+   const faqquestions=document.createElement("div");
+   faqquestions.setAttribute('class', 'faq-sects');
+   const jsondatadisplay=document.getElementById("questions-stack");
+    jsondatadisplay.appendChild(faqquestions);
+   const listquestions=document.createElement("h3");
+   listquestions.setAttribute('class', 'listquestionsfaq');
+   listquestions.textContent=itemsfaq.question;
+   listquestions.addEventListener('click', showanswersfaq);
+   const answers=document.createElement('p');
+   answers.textContent=itemsfaq.answer;
+   answers.style.display="none";
+   answers.setAttribute('class', 'faqanswers')
+   function showanswersfaq(){
+        if (answers.style.display==="block"){
+            answers.style.display="none";
+        }
+        else{
+            answers.style.display="block";
+        }
+   }
+    /*const spandropdown=document.createElement('span');
+    const buttondropdown=document.createElement('button');
+    buttondropdown.setAttribute('class', 'buttondropdown')
+    buttondropdown.textContent="dropdown";
+
+    spandropdown.appendChild(buttondropdown);*/
+   faqquestions.appendChild(listquestions);
+   listquestions.appendChild(answers);
+  
+}
+
+
             //dipslay education purpose random quotes
             let quoteContainer=document.getElementById("quotes");
             let myquotes=[" Science and technology revolutionize our lives, but memory, tradition and myth frame our response.", 
@@ -403,6 +472,9 @@ for (var itemsnet of jsondatanetwork){
             let webContainer=document.getElementById("web-terms-container");
             let networkContainer=document.getElementById("network-terms-container");
             let showbeforetopics=document.getElementById("show-case");
+            let aiBtn=document.getElementById("ai-btn");
+            let webBtn=document.getElementById("web-btn");
+            let networkBtn=document.getElementById("network-btn");
            /* let quest1=document.getElementById("quest-0");
             let quest2=document.getElementById("quest-1");
             let quest3=document.getElementById("quest-2");
@@ -411,14 +483,16 @@ for (var itemsnet of jsondatanetwork){
 
  //display about page
             const displayAbout=()=>{
-                if(aboutPage.style.display="block"){
+                if(aboutPage.style.display==="none"){
                     faqContainer.style.display="none";
                 quotesContainer.style.display="none";
                 faqBtn.style.display="block";
                 getStartedPage.style.display="none";
+                aboutPage.style.display="block";
                 }
               else{
                 quotesContainer.style.display="block";
+                aboutPage.style.display="none";
               }
             }
             let aboutLink=document.getElementById("about-link").addEventListener("click", displayAbout);
@@ -450,40 +524,58 @@ for (var itemsnet of jsondatanetwork){
 
           
            //show ai topics
+           
            const showAiTopic=()=>{
                showbeforetopics.style.display="none";
                aiContainer.style.display="block";
                webContainer.style.display="none";
                networkContainer.style.display="none";
+               aiBtn.style.backgroundColor="rgba(59, 38, 31, 0.8)";
+               aiBtn.style.color="#ffffff";
+               webBtn.style.backgroundColor="transparent";
+               webBtn.style.color="#00000";
+               networkBtn.style.backgroundColor="transparent";
+               networkBtn.style.color="#00000";
            }
-           let aiBtn=document.getElementById("ai-btn").addEventListener("click", showAiTopic);
+           aiBtn.addEventListener("click", showAiTopic);
+           
            //show web topics
            const showWebTopic=()=>{
                showbeforetopics.style.display="none";
                webContainer.style.display="block";
                aiContainer.style.display="none";
                networkContainer.style.display="none";
+               webBtn.style.backgroundColor="rgba(59, 38, 31, 0.8)";
+               webBtn.style.color="#ffffff";
+               networkBtn.style.backgroundColor="transparent";
+               networkBtn.style.color="#00000";
+               aiBtn.style.backgroundColor="transparent";
+               aiBtn.style.color="#00000";
            }
-           let webBtn=document.getElementById("web-btn").addEventListener("click", showWebTopic);
+           webBtn.addEventListener("click", showWebTopic);
            //show network topics
            const showNetworkTopic=()=>{
                showbeforetopics.style.display="none";
                networkContainer.style.display="block";
                webContainer.style.display="none";
                aiContainer.style.display="none";
+               networkBtn.style.backgroundColor="rgba(59, 38, 31, 0.8)";
+               networkBtn.style.color="#ffffff";
+               webBtn.style.backgroundColor="transparent";
+               webBtn.style.color="#00000";
+               aiBtn.style.backgroundColor="transparent";
+               aiBtn.style.color="#00000";
            }
-           let networkBtn=document.getElementById("network-btn").addEventListener("click", showNetworkTopic);
+           networkBtn.addEventListener("click", showNetworkTopic);
 
             //close faq button
            const closeFaq=()=>{
-               if (faqContainer.style.display==="block" || aiContainer.style.display==="none"){
-                faqContainer.style.display="none";
-                aiContainer.style.display="block";
+               faqContainer.style.display="none";
+               quotesContainer.style.display="block";
+               faqBtn.style.display="block";
+
            }
-           else{
-            faqContainer.style.display="block";
-                aiContainer.style.display="none";
-           }}
+           
            let closefaqBtn=document.getElementById("close-faq").addEventListener("click", closeFaq);
 
         </script>
