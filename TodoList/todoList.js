@@ -1,3 +1,26 @@
+let dateNum=new Date();
+let dateNumLoc=dateNum.getDate();
+document.getElementById("day").innerHTML=dateNumLoc;
+
+let yearLoc=dateNum.getFullYear();
+document.getElementById("year").innerHTML=yearLoc;
+function getWeekDay(){
+    var weekdays=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var day=dateNum.getDay();
+    return weekdays[day];
+}
+document.getElementById("today").innerHTML=getWeekDay(day);
+
+function getMonthYear(){
+    var monthsYear=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var month=dateNum.getMonth();
+    return monthsYear[month];
+}
+document.getElementById("month").innerHTML=getMonthYear(month);
+
+
+
+
 let listContainer=document.getElementById("all-list");
 let emptylistContainer=document.getElementById("empty-list-display");
 let alllistContainer=document.getElementById("component-4");
@@ -29,7 +52,7 @@ gotoExerciseBtn.addEventListener("click", gotoExerciseContainer);
 let addExerciseTaskBtn=document.getElementById("add-task-btn-exercise");
 addExerciseTaskBtn.addEventListener("click", addExerciseTask);
 
-
+let i=0; let j=0; let k=0;
 function gotoReadContainer(){
     if(gotoRead.style.display="block"){
         gotoDrink.style.display="none";
@@ -112,18 +135,20 @@ function addTask(e){
     let inputContainer=document.getElementById("input").value;
     let appendInput=document.createTextNode(inputContainer);
     
-   
+   inputContainer.value="";
  
     let breakline=document.createElement('br');
     
     //append new list
-    newList.appendChild(breakline);
-    newList.append(appendInput);
-    
+    lists.appendChild(breakline);
+    lists.append(appendInput);
+   
+
 
     if(inputContainer===""){
         alert("hey, ypu gotta put in a task");
         newList.style.display="none";
+        showNumTaskExercise.innerHTML=i;
     }
     else{
         false;
@@ -138,21 +163,29 @@ function addTask(e){
 
     spanClose.onclick=function(){
     newList.style.display="none";
+    i-=1;
+    showNumTask.innerHTML=i;
     }
 
     //append check box
-    let checkBox=document.createElement('INPUT');
-    checkBox.setAttribute('type', 'checkbox');
-    checkBox.setAttribute("class", "checkitem");
-    lists.appendChild(checkBox);
+    let checkBoxCreate=document.createElement('INPUT');
+    checkBoxCreate.setAttribute('type', 'checkbox');
+    checkBoxCreate.setAttribute("class", "checkitem");
+    lists.appendChild(checkBoxCreate);
     
     //checked tasks to change text color
-    if(checkBox.checked=false){
-        lists.style.color="green";
-    }
-    else{
-        newList.style.color="black";
-    }
+    let completeRead=document.getElementById("completed-read");
+    lists.addEventListener("click", function(){
+        if(checkBoxCreate.checked===true){
+            lists.style.textDecoration="white double line-through";
+            completeRead.innerHTML=i;
+         }
+         else{
+           lists.style.textDecoration="none";
+           completeRead.innerHTML=i-1;
+         }       
+    })
+    
     //append color of tasks
     let bookdot=document.createElement('DIV');
     bookdot.setAttribute("class", "bookdot");
@@ -163,11 +196,7 @@ if(addBookTaskBtn.onclick=true){
 else{
     false;
 }
-lists=[];
-     var i=0;
-     if(i<inputContainer.length){
-         console.log(i++);
-     }
+
 //append how long tasks will take
     let howlongp=document.createElement("p");
     let howlongContainer=document.getElementById("howlong").value;
@@ -182,8 +211,16 @@ lists=[];
     component1.style.opacity="1";
     component2.style.opacity="1";
     component3.style.opacity="1";
+
+        let showNumTask=document.getElementById("num-task");
+        
+        
     
+  i+=1;
+ showNumTask.innerHTML=i;
+   
 }
+
 
 //drink append tasls
 function addDrinkTask(e){
@@ -204,6 +241,7 @@ function addDrinkTask(e){
     if(inputContainer===""){
         alert("hey, ypu gotta put in a task");
         newList.style.display="none";
+        showNumTaskExercise.innerHTML=j;
     }
     else{
         false;
@@ -218,21 +256,29 @@ function addDrinkTask(e){
 
     spanClose.onclick=function(){
     newList.style.display="none";
+    j-=1;
+    showNumTaskDrink.innerHTML=j;
     }
 
     //append check box
-    let checkBox=document.createElement('INPUT');
-    checkBox.setAttribute('type', 'checkbox');
-    checkBox.setAttribute("class", "checkitem");
-    lists.appendChild(checkBox);
+    let checkBoxCreate=document.createElement('INPUT');
+    checkBoxCreate.setAttribute('type', 'checkbox');
+    checkBoxCreate.setAttribute("class", "checkitem");
+    lists.appendChild(checkBoxCreate);
     
     //checked tasks to change text color
-    if(checkBox.checked=true){
-       
-    }
-    else{
-        newList.style.color="black";
-    }
+    let completeDrink=document.getElementById("completed-drink");
+    lists.addEventListener("click", function(){
+        if(checkBoxCreate.checked===true){
+            lists.style.textDecoration="white double line-through";
+            completeDrink.innerHTML=j;
+         }
+         else{
+           lists.style.textDecoration="none";
+           completeDrink.innerHTML=j-1;
+         }  
+
+    })
     //append color of tasks
 
     let drinkdot=document.createElement('DIV');
@@ -260,6 +306,10 @@ else{
     component1.style.opacity="1";
     component2.style.opacity="1";
     component3.style.opacity="1";
+
+    let showNumTaskDrink=document.getElementById("showDrinkTaskNum");
+    j+=1;
+    showNumTaskDrink.innerHTML=j;
    
 }   
 
@@ -282,6 +332,7 @@ function addExerciseTask(e){
     if(inputContainer===""){
         alert("hey, ypu gotta put in a task");
         newList.style.display="none";
+        showNumTaskExercise.innerHTML=k;
     }
     else{
         false;
@@ -296,19 +347,29 @@ function addExerciseTask(e){
 
     spanClose.onclick=function(){
     newList.style.display="none";
+    k-=1;
+    showNumTaskExercise.innerHTML=k;
     }
 
     //append check box
-    let checkBox=document.createElement('INPUT');
-    checkBox.setAttribute('type', 'checkbox');
-    checkBox.setAttribute("class", "checkitem");
-    lists.appendChild(checkBox);
+    let checkBoxCreate=document.createElement('INPUT');
+    checkBoxCreate.setAttribute('type', 'checkbox');
+    checkBoxCreate.setAttribute("class", "checkitem");
+    lists.appendChild(checkBoxCreate);
     
     //checked tasks to change text color
-    if(checkBox.checked===true){
-        
-    }
-    
+    let completeExercise=document.getElementById("completed-exercise");
+    lists.addEventListener("click", function(){
+        if(checkBoxCreate.checked===true){
+            lists.style.textDecoration="white double line-through";
+            completeExercise.innerHTML=k;
+         }
+         else{
+           lists.style.textDecoration="none";
+           completeExercise.innerHTML=k-1;
+         }  
+              
+    })
     //append color of tasks
 
     let exercisedot=document.createElement('DIV');
@@ -336,4 +397,10 @@ else{
     component1.style.opacity="1";
     component2.style.opacity="1";
     component3.style.opacity="1";
+
+    inputContainer.value=" ";
+
+    let showNumTaskExercise=document.getElementById("showExerciseTaskNum");
+    k+=1;
+    showNumTaskExercise.innerHTML=k;
 }

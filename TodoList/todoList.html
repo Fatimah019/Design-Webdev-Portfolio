@@ -12,7 +12,7 @@
         <link href="todoList.css" rel="stylesheet">
         
     </head>
-  
+
     <body>
         <div class="container">
             <div class="component-1" id="component-1">
@@ -21,13 +21,16 @@
             <div class="component-2" id="component-2">
                 <div id="full-date">
                     <h2 id="day">23</h2>
-                    <p id="day-words">Today<br>August 2019</p>
+                    <p id="day-words">
+                        <p id="today">Today</p><br/>
+                        <p id="month">August<span id="year">2020</span></p>
+                    </p>
                 </div>
             </div>
             <div class="component-3" id="component-3">
-                <i class="fa fa-book" id="goto-read"></i>
-                <i class="fa fa-bicycle" id="goto-exercise"></i>
-                <i class="fa fa-beer" id="goto-drink"></i>
+                <i class="fa fa-book" id="goto-read"><span id="completed-read">0</span><span>/</span><span id="num-task">0</span></i>
+                <i class="fa fa-bicycle" id="goto-exercise"><span id="completed-exercise">0</span><span>/</span><span id="showExerciseTaskNum">0</span></i>
+                <i class="fa fa-beer" id="goto-drink"><span id="completed-drink">0</span><span>/</span><span id="showDrinkTaskNum">0</span></i>
             </div>
             <div class="component-4"  id="component-4">
                 <p id="current-day">TODAY</p>
