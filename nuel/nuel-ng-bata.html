@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nuel Bata NG</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Nuel Bata, Where you get your comfy leather slippers at affordable price.">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        <style>
+            html{
+                height:100%;
+            }
+            body{
+                background-image:url("https://res.cloudinary.com/dycyotaya/image/upload/v1579602200/bata5_xpoyyf.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin:auto;
+                height:330px;
+                z-index: 999;
+                content: '';
+                vertical-align: middle;
+            }
+            .nav-desktop{
+                display: block;
+                padding-top:45px;
+                padding-left:40px;
+            }
+            .logo-desktop img{
+                height:100px;
+                width:100px;
+            }
+            .over-all-head{
+                display: flex;
+                flex-direction: row;
+            }
+            .nav-desktop a{
+                color:white;
+                font-size:20px;
+                text-decoration: none;
+                padding:20px;
+            }
+            .footer{
+                    font-size:20px;
+                    padding:15px;
+                    padding-right:20px;
+                    margin-top:-20px;
+                    float:right;
+                }
+                .fa-facebook, .fa-twitter, .fa-instagram{
+                    padding:15px;
+                    padding-left:20px;
+                    color:white;
+                }
+            .contact{
+                    float: right; color:white; border-radius: 50%; height:50px; width:50px; background-color:rgb(129, 123, 109); outline:none;
+                }
+                #contact-page{
+                    background-color:black;
+                    margin:auto;
+                    width:90%;
+                    border-radius: 5px;
+                    display: none;
+                }
+                .contact-row{
+                    width:90%;
+                    margin:auto;
+                    padding:5px;
+                    padding-top:0;
+                }
+                input, textarea{
+                    width:100%;
+                margin:auto;
+                margin-bottom:15px;
+                margin-top:15px;
+                background-color: rgb(222, 226, 226);
+                border-radius: 5px;
+                padding:10px 0px 10px 0px;
+            }
+            textarea{
+                height:50%;
+                margin-top:15px;
+            }
+            #submit-btn{
+                background-color:goldenrod;
+                color:#ffffff;
+                border-radius: 10px;
+                outline:none;
+            }
+            .fa-close{
+                color:white;
+                float: right;
+                font-size:20px;
+                padding:5px;
+            }
+            .nav-btn{
+                display: none;
+                background-color:transparent;
+                box-shadow: 0px 4px 4px 0px rgba(18, 79, 170, 0.25);
+            }
+            #nav-list{
+                display: none;
+            }
+            @media screen and (max-width:480px){
+                #title-page{
+                    color:white;
+                    font-size:18px;
+                    padding-right:10px;
+                }
+                .logo-desktop img{
+               display:none;
+            }
+                .nav-btn{
+                display: block;
+                    width:100%;
+                text-align: right;
+                
+                }
+                #nav-header{
+                    width:100%;
+                    background-image:url("https://res.cloudinary.com/dycyotaya/image/upload/v1579602256/bata6_hhtrea.jpg");
+                }
+                #nav-btn{
+                    background-color:rgb(204, 199, 185);
+                    border-radius: 3px;
+                }
+                .fa-bars{
+                font-size:20px;
+                padding:5px;
+                }
+                .nav-desktop{
+                display: none;
+                }
+                #nav-list{
+                    background-color:rgb(146, 139, 122);
+                    box-shadow: 0px 4px 4px 0px rgba(18, 79, 170, 0.25);
+                    padding:5px;
+                    position: fixed;
+                    width:100%;
+                }
+                #nav-list ul li{
+                    list-style-type: none;
+                }
+                #nav-list ul li{
+                    text-decoration: none;
+                    color:white;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+                .text-middle{
+                    text-align: center;
+                    margin:auto;
+                    color:white;
+                    font-size: 40px;
+                    margin-top:125px;
+
+                }
+                #details{
+                    border:2px solid white;
+                    text-decoration: none;
+                    color:white;
+                    padding:5px;
+                    background-color:rgb(146, 139, 122);
+                    border-radius: 10px;
+                }
+                #pride{
+                    font-size:25px;
+                }
+                .footer{
+                    font-size:20px;
+                    padding:10px;
+                    margin-top:150px;
+                }
+                .fa-facebook, .fa-twitter, .fa-instagram{
+                    padding:10px;
+                    color:white;
+                }
+                .contact{
+                    float: right; color:white; border-radius: 50%; height:50px; width:50px; background-color:rgb(146, 139, 122); outline:none;
+                }
+                #contact-page{
+                    background-color:black;
+                    margin:auto;
+                    width:90%;
+                    border-radius: 5px;
+                    display: none;
+                }
+                .contact-row{
+                    width:90%;
+                    margin:auto;
+                    padding:5px;
+                    padding-top:0;
+                }
+                input, textarea{
+                    width:100%;
+                margin:auto;
+                margin-bottom:15px;
+                margin-top:15px;
+                background-color: rgb(222, 226, 226);
+                border-radius: 5px;
+                padding:10px 0px 10px 0px;
+            }
+            textarea{
+                height:50%;
+                margin-top:15px;
+            }
+            #submit-btn{
+                background-color:rgb(146, 139, 122);
+                color:#ffffff;
+                border-radius: 10px;
+                outline:none;
+            }
+            .fa-close{
+                color:white;
+                float: right;
+                font-size:20px;
+                padding:5px;
+            }
+            .about-container{
+                text-align: center;
+                background-color:rgb(199, 159, 58);
+                color:black;
+                padding:10px;
+                margin:auto;
+                width:90%;
+                font-size:18px;
+            }
+            .review{
+                background-color:black;
+                color:white;
+                padding:10px;
+                border-radius: 5px;
+                outline:none;
+                font-size: 16px;
+            }
+            #about{
+                display: none;
+                padding-top:40px;
+            }
+            .shop{
+                display: none;
+            }
+            .nav-shop{
+                display: flex;
+                flex-direction: column;
+                width:25%;
+                background-color:rgb(255, 255, 255);
+                border-radius:3px;
+                padding:5px;
+            }
+            .nav-shop button{
+                width:80%;
+                margin:auto;    
+                margin-bottom: 5px;
+                margin-top:5px;
+                background-color:rgb(216, 210, 210);
+            }
+            #slippers, #sandals, #slippers-w, #sandals-w, #slippers-k, #sandals-k{
+                background-color:rgb(146, 139, 122);
+                padding:5px;
+                color:white;
+                font-size:16px;
+                border-radius: 3px;
+                margin-left:10px;
+                margin-top:10px;
+            }
+            #slippers:hover, #sandals:hover, #slippers-w:hover, #sandals-w:hover, #slippers-k:hover, #sandals-k:hover{
+                background-color:rgb(216, 210, 210);
+            }
+            #close-nav{
+                display: none;
+            }
+            .row-1-sandal{
+                display: flex;
+                background-color:black;
+                width:100%;
+            }
+            .col-1-row-1-sandal, .col-2-row-1-sandal{
+                width:90%; margin:auto; color:white;
+                padding:10px;
+            }
+            #gallery{
+                width:100%;
+                height:100%;
+            }
+            #men-shop, #women-shop, #kids-shop{
+                display: none;
+                padding-top:40px;
+            }
+            #viw-more{
+                color:wheat;
+                text-decoration: none;
+                font-style: italic;
+                font-size:15px;
+            }
+            .cus-reviews{
+                margin-top:-20px;
+            }
+            * {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  min-width: 90%;
+  position: relative;
+  margin: auto;
+  margin-right:15px;
+  margin-left:15px;
+  background-color:white;
+  border-radius:20px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  min-width:80%;
+  margin:auto;
+  padding:5%;
+  padding-left:20%;
+  padding-right:20%;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -12px;
+  padding: 16px;
+  color: white;
+  background-color:rgb(146, 139, 122)d;
+  border-radius:50%;
+  height:40px;
+  width:40px;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  user-select: none;
+  text-align:center;
+  margin-left:10px;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  margin-right:10px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(228, 226, 226, 0.8);
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+           
+@keyframes flickerbody{
+    from{background-image:(url"images/back1.jpg")}
+    to{background-image:url("images/back2.jpg")}
+
+}
+body{
+    animation-name: flickerbody;
+    animation-duration:infinite;
+   }
+}
+           
+           
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="nav-header">
+            <div class="nav-btn"><span id="title-page">Home</span><button id="nav-btn"><i class="fa fa-bars" id="nav-bars"></i>
+            <i class="fa fa-close" style="color:black;" id="close-nav"></i></button> <div class="logo" style="float: left; color:white;">Logo</div></div>
+        </div>
+        <div class="over-all-head">
+        <div class="logo-desktop"><img src="back-img.jpg"></div>
+            <div class="nav-head">
+                <div class="nav-desktop">
+                    <a href="">Home</a>
+                    <a href="">About</a>
+                    <a href="">Shop<span><i class="fa fa-angle-down" style="padding-left:10px;"></i></span></a>
+                </div>
+            </div>
+        </div>    
+            <div id="nav-list">
+                <ul>
+                    <li id="go-home">Home</li>
+                    <li id="about-list">About</li>
+                    <li id="shop">Shop <span><i class="fa fa-angle-down" id="shop-drop"></i></span></li>
+<!--shop page for male, female and children-->
+<div class="shop" id="shop-list">
+        <div class="nav-shop" id="nav-shop">
+            <button id="men">Men</button>
+            <button id="women">Women</button>
+            <button id="kids">Kids</button>
+        </div>
+    </div>
+                </ul>
+            </div>
+        <div id="home">
+            <div class="text-middle">
+                <h3>Nuel Bata</h3>
+                <h3 id="pride">We Pride in <a href="#" id="details">Details</a></h3>
+            </div>
+
+            <div class="footer">
+                <a href="facebook.com/"><i class="fa fa-facebook"></i></a>
+                <a href="facebook.com/"><i class="fa fa-twitter"></i></a>
+                <a href="facebook.com/"><i class="fa fa-instagram"></i></a>
+                <button class="contact" id="contact-btn"><i class="fa fa-envelope" style="color:white; font-size:30px;"></i></button>
+            </div>
+        </div>
+        </div>
+<!--contact me page-->
+        <div id="contact-page">
+            <h2 style="color:white; text-align: center;">Lets talk <span><i class="fa fa-close" id="close"></i></span></h2> 
+            <div class="contact-row">
+                <form method="POST" action="https://formspree.io/moqjykeo">
+                    <input type="text" placeholder="&#xF007; your full name" name="name"><br/>
+                    <input type="email" placeholder="&#xF0e0; Email Address" name="_replyto"><br/>
+                    <textarea rows="10" placeholder="Start Your Message" name="message"></textarea><br/>
+                    <input type="submit" id="submit-btn">
+                </form>
+            </div>
+        </div>
+
+<!--about me page-->
+        <div class="about" id="about">
+            <div class="about-container">
+                <h3>About Nuel Bata</h3>
+                <h3>we make it very simple and unique</h3>
+                <p>Nuel Bata is a footware company where you do bata and bata will do you. 
+                        meeehhhnnnn. i lack sense in writing sometime. you have to come up with a content for this baby.
+                        when you come up with something, lemme know so as to make changes at my end.
+                        Nuel Bata is a footware company where you do bata and bata will do you. 
+                        meeehhhnnnn. i lack sense in writing sometime. you have to come up with a content for this baby.
+                        when you come up with something, lemme know so as to make changes at my end.</p>
+                <button class="review">Customers Reviews</button>
+            </div>
+            <!-- Slideshow container -->
+<div class="cus-reviews">
+        <div class="slideshow-container">
+                    <!-- Next and previous buttons -->
+                    <i class="fa fa-angle-left prev" onclick="plusSlides(-1)"></i>
+                    <i class="fa fa-angle-right next" onclick="plusSlides(1)"></i>
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                    <i class="fa fa-quote-left"></i>
+                    <P>I really enjoyed Nuel bata's service. hope to come back for more. thanks for the ouch!</P><i class="fa fa-quote-right" style="float:right;"></i>
+                    <br/><p>Motunrayo</p>
+                    <p>From shomolu</p>
+            </div>
+          
+            <div class="mySlides fade">
+                    <i class="fa fa-quote-left"></i>
+                    <P>I got my sandals from Nuel bata since 2010 and i still use it. I trust you on ouch ouch!!!</P><i class="fa fa-quote-right" style="float:right;"></i>
+                    <br/><p>Olabisi</p>
+                    <p>From Yaba</p>
+            </div>
+          
+            <div class="mySlides fade">
+                        <i class="fa fa-quote-left"></i>
+                        <P>I placed an order today and got in in  two days. i was amazed at how fast it was ready. i didnt call to know if it was ready. yet Nuel bata kept to time. Kudos boss.
+                        </P><i class="fa fa-quote-right" style="float:right;"></i>
+                        <br/><p>Yomi</p>
+                        <p>From gbagada</p>
+            </div>
+          
+            <p style="padding:20px;"><a href="#" style="text-decoration: none; color:black;">leave a comment</a></p>
+        </div>
+        
+    </div>
+        </div>
+
+<!--men's shop-->
+        <div class="men-shop" id="men-shop">
+            <div class="nav-men">
+                <button id="slippers">slippers</button>
+                <button id="sandals">sandals</button>
+            </div>
+            <div id="slippers-gallery">
+            <div class="row-1-sandal">
+                <div class="col-1-row-1-sandal"><a href="https://res.cloudinary.com/dycyotaya/image/upload/v1579602435/IMG_3934_roerob.jpg"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602435/IMG_3934_roerob.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602477/bata14_vlgwho.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            </div>
+            <div class="row-1-sandal">
+                <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602466/bata15_ucfd3j.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602273/images_11_gkwwdy.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            </div>
+            <div class="row-1-sandal">
+                <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602270/bata12_ek4xa0.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602244/bata11_jujaji.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            </div>
+            <div class="row-1-sandal">
+                <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602261/bata7_vd9otr.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602153/bata3_hovgus.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            </div>
+            </div>
+
+            <div id="sandals-gallery">
+             
+                <div class="row-1-sandal">
+                    <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602175/bata10_b3u3at.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                    <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602200/bata5_xpoyyf.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                </div>
+                <div class="row-1-sandal">
+                    <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602261/bata7_vd9otr.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                   <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602244/bata11_jujaji.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                </div>
+            </div>
+        </div>
+<!--women's shop-->
+    <div class="women-shop" id="women-shop">
+        <div class="nav-women">
+            <button id="slippers-w">slippers</button>
+            <button id="sandals-w">sandals</button>
+        </div>
+        <div id="slippers-gallery-w">
+       
+        <div class="row-1-sandal">
+            <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602211/bata4_cdrwkc.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602133/bata8_lirjyj.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+        </div>
+        <div class="row-1-sandal">
+            <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602136/bata1_gbyrgb.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602256/bata6_hhtrea.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+        </div>
+        </div>
+
+        <div id="sandals-gallery-w">
+         
+            <div class="row-1-sandal">
+                <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602061/back-img_nmxlkh.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602270/bata12_ek4xa0.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            </div>
+           
+        </div>
+    </div>
+
+<!--kids shop-->
+    <div id="kids-shop">
+        <div class="nav-kids">
+            <button id="slippers-k">slippers</button>
+            <button id="sandals-k">sandals</button>
+        </div>
+        <div id="slippers-gallery-k">
+       
+        <div class="row-1-sandal">
+            <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602061/back-img_nmxlkh.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602256/bata6_hhtrea.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+        </div>
+        <div class="row-1-sandal">
+            <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602211/bata4_cdrwkc.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602200/bata5_xpoyyf.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+        </div>
+        </div>
+
+        <div id="sandals-gallery-k">
+         
+            <div class="row-1-sandal">
+                <div class="col-1-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602175/bata10_b3u3at.jpgg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+                <div class="col-2-row-1-sandal"><a href="#"><img src="https://res.cloudinary.com/dycyotaya/image/upload/v1579602153/bata3_hovgus.jpg" id="gallery"></a><p>suwade leather someting slippers <a href="view-more" id="viw-more">see details</a></p></div>
+            </div>
+           
+        </div>
+    </div>
+
+        <script>
+         var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+  
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+  
+}
+
+            let navList=document.getElementById("nav-list");
+            let navBtn=document.getElementById("nav-btn").addEventListener("click", showNavList);
+            let closenav=document.getElementById("close-nav");
+            let navbars=document.getElementById("nav-bars");
+
+            function showNavList(){
+                if(navList.style.display==="block"){
+                    navList.style.display="none";
+                    navbars.style.display="block";
+                    closenav.style.display="none";
+                }
+                else{
+                    navList.style.display="block";
+                    closenav.style.display="block";
+                    navbars.style.display="none";
+                }
+            }
+
+            let quotes=["Satifaction", "Delivery", "whatever", "However"];
+            function showquotes(){
+                let randomquotes=Math.floor(Math.random() * quotes.length);
+                document.getElementById("details").innerHTML=quotes[randomquotes];
+                window.onload(showquotes);
+            }
+           setInterval(showquotes, 4000);
+        
+           let navheader=document.getElementById("nav-header");
+           let contactBtn=document.getElementById("contact-btn").addEventListener("click", showcontact);
+           let contactpage=document.getElementById("contact-page");
+           let homepage=document.getElementById("home");
+           let homeBtn=document.getElementById("go-home").addEventListener("click", showHome);
+           let closebtn=document.getElementById("close").addEventListener("click", leaveContact);
+           let aboutbtn=document.getElementById("about-list").addEventListener("click", showAbout);
+           let aboutpage=document.getElementById("about");
+           let titlepage=document.getElementById("title-page");
+           let shop=document.getElementById("shop-list");
+           let shopdrop=document.getElementById("shop-drop").addEventListener("click", showdropshop);
+           let slippersgallery=document.getElementById("slippers-gallery");
+           let sandalsgallery=document.getElementById("sandals-gallery");
+           let slippersbtn=document.getElementById("slippers").addEventListener("click", slippersshop);
+           let sandalsbtn=document.getElementById("sandals").addEventListener("click", sandalsshop);
+           let menbtn=document.getElementById("men").addEventListener("click", showmenShop);
+           let menshop=document.getElementById("men-shop");
+
+           let womenslippersgallery=document.getElementById("slippers-gallery-w");
+           let womensandalsgallery=document.getElementById("sandals-gallery-w");
+           let womenslippersbtn=document.getElementById("slippers-w").addEventListener("click", slippersshop);
+           let womensandalsbtn=document.getElementById("sandals-w").addEventListener("click", sandalsshop);
+           let womenbtn=document.getElementById("women").addEventListener("click", showwomenShop);
+           let womenshop=document.getElementById("women-shop");
+
+           let kidsslippersgallery=document.getElementById("slippers-gallery-k");
+           let kidssandalsgallery=document.getElementById("sandals-gallery-k");
+           let kidsslippersbtn=document.getElementById("slippers-k").addEventListener("click", slippersshop);
+           let kidssandalsbtn=document.getElementById("sandals-k").addEventListener("click", sandalsshop);
+           let kidsbtn=document.getElementById("kids").addEventListener("click", showkidsShop);
+           let kidsshop=document.getElementById("kids-shop");
+
+           /*let navlist=document.getElementById("nav-list");
+           navlist.onclick=function cancelNavList(){
+            navbars.style.display="block";
+            closenav.style.display="none"
+                navlist.style.display="none";
+            }*/
+            function showmenShop(){
+                menshop.style.display="block";
+                homepage.style.display="none";
+                document.body.style.backgroundImage="none";
+                document.body.style.backgroundColor="rgb(0, 0, 0)";
+                aboutpage.style.display="none";
+                navList.style.display="none";
+                navbars.style.display="block";
+                closenav.style.display="none"
+                sandalsgallery.style.display="none"
+                womenshop.style.display="none";
+                kidsshop.style.display="none";
+                titlepage.textContent="Men Shop";
+                slippersgallery.style.display="block";
+                shop.style.display="none";
+                navheader.style.position="fixed";
+            }
+            function showwomenShop(){
+                womenshop.style.display="block";
+                homepage.style.display="none";
+                document.body.style.backgroundImage="none";
+                document.body.style.backgroundColor="rgb(0, 0, 0)";
+                aboutpage.style.display="none";
+                navList.style.display="none";
+                navbars.style.display="block";
+                closenav.style.display="none"
+                womensandalsgallery.style.display="none"
+                menshop.style.display="none";
+                kidsshop.style.display="none";
+                titlepage.textContent="Women Shop";
+                womenslippersgallery.style.display="block";
+                shop.style.display="none"
+                navheader.style.position="fixed";
+            }
+            function showkidsShop(){
+                kidsshop.style.display="block";
+                homepage.style.display="none";
+                document.body.style.backgroundImage="none";
+                document.body.style.backgroundColor="rgb(0, 0, 0)";
+                aboutpage.style.display="none";
+                navList.style.display="none";
+                navbars.style.display="block";
+                closenav.style.display="none"
+                kidssandalsgallery.style.display="none"
+                menshop.style.display="none";
+                womenshop.style.display="none";
+                kidsslippersgallery.style.display="block";
+                titlepage.textContent="Kids Shop";
+                shop.style.display="none"
+                navheader.style.position="fixed";
+            }
+            function slippersshop(){
+                slippersgallery.style.display="block";
+                womenslippersgallery.style.display="block";
+                kidsslippersgallery.style.display="block";
+                sandalsgallery.style.display="none"
+                womensandalsgallery.style.display="none"
+                kidssandalsgallery.style.display="none"
+               }
+            function sandalsshop(){
+                sandalsgallery.style.display="block";
+                womensandalsgallery.style.display="block"
+                kidssandalsgallery.style.display="block"
+                   slippersgallery.style.display="none"
+                   womenslippersgallery.style.display="none";
+                   kidsslippersgallery.style.display="none";
+            }
+
+           function showcontact(){
+               if (contactpage.style.display==="block"){
+                   contactpage.style.display="none";
+                   homepage.style.display="block";
+               }
+               else{
+                   contactpage.style.display="block";
+                   homepage.style.display="none";
+               }
+           }
+           function leaveContact(){
+               contactpage.style.display="none";
+               homepage.style.display="block";
+           }
+           function showHome(){
+            aboutpage.style.display="none";
+            homepage.style.display="block";
+            navList.style.display="none";
+            titlepage.textContent="Home";
+            document.body.style.backgroundImage="url(images/back-img.jpg)";
+            navbars.style.display="block";
+            closenav.style.display="none"
+            menshop.style.display="none";
+            womenshop.style.display="none";
+            navheader.style.position="relative";
+           }
+           function showAbout(){
+            aboutpage.style.display="block";
+            homepage.style.display="none";
+            navList.style.display="none";
+            document.body.style.backgroundImage="none";
+            document.body.style.backgroundColor="rgba(146, 139, 122, 0.5)";
+            titlepage.textContent="About";
+            navbars.style.display="block";
+            closenav.style.display="none"
+            menshop.style.display="none";
+            womenshop.style.display="none";
+            navheader.style.position="fixed";
+           }
+
+           function showdropshop(){
+            if(shop.style.display==="block"){
+                shop.style.display="none";
+            }
+            else{
+                shop.style.display="block";
+            }
+           }
+        </script>
+    </body>
+</html>
