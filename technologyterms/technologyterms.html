@@ -275,12 +275,17 @@
 const theContainer=document.createElement('div');
 theContainer.setAttribute('class', 'container');
 app.appendChild(theContainer);
- var request=new XMLHttpRequest();
-            request.open('GET', 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5aee483e492d4eaa9fa09699647bf49d', true);
-            request.onload=function(){
-                var data=JSON.parse(this.response)
-                data.articles.forEach(item=>{
-                     //display in a container
+
+
+async function fetchapi(item){
+    let response=fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5aee483e492d4eaa9fa09699647bf49d/${item}`);
+     let data=await response.json()
+     return data;
+    }
+    fetchapi('items')
+    .then(
+        response.articles.forEach(item=>{
+//display in a container
  const cardList=document.createElement('div');
 cardList.setAttribute('class', 'card');
 
@@ -305,9 +310,7 @@ cardList.appendChild(para);
 cardList.appendChild(viewmorelink);
 
       });
-                
-            }
-            request.send();
+    );
 
 //call the words in jason data ai words
 

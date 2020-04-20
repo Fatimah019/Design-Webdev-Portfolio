@@ -16,19 +16,21 @@
             my first js clock
         </title>
         <style>
-           #body{
-                background-color: black;
-            }
-#clock{
-background-color:rgb(37, 24, 107);
-box-shadow: 30px aqua;
-height:500px;
-width:500px;
-position:relative;
-border-radius: 50%;
-border: 20px solid white;
-margin:2em auto;
+#body{
+    background-color: black;
 }
+#clock{
+    background-color:rgb(37, 24, 107);
+    box-shadow: 30px aqua;
+    height:500px;
+    width:500px;
+    position:relative;
+    border-radius: 50%;
+    border: 20px solid white;
+    margin:2em auto;
+}
+
+/*hands*/
 #twelve{
     background-color:white;
     height:35px;
@@ -183,6 +185,7 @@ margin:2em auto;
     transform: rotate(90deg);
 }
 
+/*keyframes transition*/
 @keyframes dateandtime {
     0%   {color: rgb(141, 46, 128);}
     25%  {color: rgb(172, 172, 66);}
@@ -219,26 +222,26 @@ margin:2em auto;
     </head>
     <body id="body">
   
-<div class="container" id="clock">
-<section id="twelve"></section>
-<section id="eleven"></section>
-<section id="ten"></section>
-<section id="nine"></section>
-<section id="eight"></section>
-<section id="seven"></section>
-<section id="six"></section>
-<section id="five"></section>
-<section id="four"></section>
-<section id="three"></section>
-<section id="two"></section>
-<section id="one"></section>
+        <div class="container" id="clock">
+            <section id="twelve"></section>
+            <section id="eleven"></section>
+            <section id="ten"></section>
+            <section id="nine"></section>
+            <section id="eight"></section>
+            <section id="seven"></section>
+            <section id="six"></section>
+            <section id="five"></section>
+            <section id="four"></section>
+            <section id="three"></section>
+            <section id="two"></section>
+            <section id="one"></section>
 
-<section id="dot"></section>
-<section id="sec-hand"></section>
-<section id="hour-hand"></section>
-<section id="min-hand"></section>
+            <section id="dot"></section>
+            <section id="sec-hand"></section>
+            <section id="hour-hand"></section>
+            <section id="min-hand"></section>
 
-<div id="time-and-date"> 
+        <div id="time-and-date"> 
     <p id="time"></p><br/>
     <p id="date"></p>
 </div>
@@ -278,9 +281,6 @@ function setTimeOutlook(time){
 }
 
 setInterval(displayCurrentTime, 1000);
-        </script>  
-
-        <script src="js/jquery-3.4.1.min">
         </script>
     </body>
 </html>

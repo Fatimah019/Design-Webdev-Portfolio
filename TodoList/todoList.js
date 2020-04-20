@@ -211,8 +211,6 @@ else{
     component3.style.opacity="1";
 
         let showNumTask=document.getElementById("num-task");
-        
-        
     
   i+=1;
  showNumTask.innerHTML=i;
@@ -220,7 +218,7 @@ else{
 }
 
 
-//drink append tasls
+//drink append tasks
 function addDrinkTask(e){
     e.preventDefault();
     //create new list
@@ -237,7 +235,7 @@ function addDrinkTask(e){
     
 
     if(inputContainer===""){
-        alert("hey, ypu gotta put in a task");
+        alert("hey, you gotta put in a task");
         newList.style.display="none";
         showNumTaskExercise.innerHTML=j;
     }

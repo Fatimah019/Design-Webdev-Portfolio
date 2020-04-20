@@ -20,23 +20,17 @@
       margin:auto;
       padding-left:60px;
    }
-    .row, .row-1{
+    .row, .row-1, .row-2, .row-3{
         display:flex;
         flex-direction: row;
         margin:auto;
         padding:20px;
     }
-    .row-2{
-        display:flex;
-        flex-direction: row;
-        margin:auto;
+    .row-2, .row-3{
+        padding:0;
         width:90%;
     }
     .row-3{
-        display:flex;
-        flex-direction: row;
-        margin:auto;
-        width:90%;
         background-color:rgb(245, 246, 247);
         box-shadow: 0px 4px 4px rgba(18, 79, 170, 0.25);
         border-radius:10px;
@@ -52,7 +46,6 @@
     .col-1, .col-2, .col-3{
         background-color:rgb(241, 244, 247);
         box-shadow: 0px 4px 4px rgba(18, 79, 170, 0.25);
-        
         width:100%;
         margin-left:10px;
         margin-right:10px;
@@ -148,6 +141,50 @@
         padding:5px;
         padding-bottom: 0;
     }
+    .row-4-2{
+        text-align:center;
+    }
+    .fa-check, .fa-arrow-right{
+        background-color:rgb(18, 79, 170);
+        padding:15px;
+        border-radius: 50%;
+        color:white;
+    }
+    .fa-arrow-left{
+        color:rgb(18, 79, 170);
+    }
+    #logout a{
+        text-decoration: none;
+        color:rgb(18, 79, 170);
+    }
+    #row-0{
+        display:flex;
+        flex-direction: row
+    }
+    #prior-goal{
+        font-size:80px;
+        color:grey;
+        margin:auto;
+        padding-top:10px;
+        margin-top:20px;
+    }
+    #work-tasks-btn{
+        border-bottom: 2px solid black;
+    }
+    #logo{
+        height:50px; width:50px; border-radius:50%;
+    }
+    .icon-edit{
+        text-align:center;
+        margin-top:100%;
+        color:grey;
+    }
+    .fa-edit, .fa-tasks{
+        font-size:100px;        
+    }
+    #input-task{
+        width:50%;
+    }
     li{
         list-style-type: none;
     }
@@ -201,6 +238,11 @@
     #personal-tasks, #home-tasks{
         display: none;
     }
+
+    /*-----------------------------------------
+    ------------------------------------------
+    media queries */
+
     @media screen and (max-width:600px){
     .heading{
        padding-left:30px;
@@ -219,6 +261,12 @@
     }
     #go-to-tasks{
         display: block;
+        width:20px;
+        height:20px;
+        padding:15px;
+        margin:auto;
+        text-align: center;
+        font-size: 25px;
     }
     #col-two, #col-three{
         display:none;
@@ -230,50 +278,7 @@
         display: block;
     }
     }
-    .row-4-2{
-        text-align:center;
-    }
-    .fa-check, .fa-arrow-right{
-        background-color:rgb(18, 79, 170);
-        padding:15px;
-        border-radius: 50%;
-        color:white;
-    }
-    .fa-arrow-left{
-        color:rgb(18, 79, 170);
-    }
-    #logout a{
-        text-decoration: none;
-        color:rgb(18, 79, 170);
-    }
-    #row-0{
-        display:flex;
-        flex-direction: row
-    }
-    #prior-goal{
-        font-size:80px;
-        color:grey;
-        margin:auto;
-        padding-top:10px;
-        margin-top:20px;
-    }
-    #work-tasks-btn{
-        border-bottom: 2px solid black;
-    }
-    #logo{
-        height:50px; width:50px; border-radius:50%;
-    }
-    .icon-edit{
-        text-align:center;
-        margin-top:100%;
-        color:grey;
-    }
-    .fa-edit, .fa-tasks{
-        font-size:100px;        
-    }
-    #input-task{
-        width:50%;
-    }
+  
     </style>
 </head>
 <body>
@@ -294,21 +299,21 @@
                 <section class="work-summary">
                     <a href="work.html">Work</a>
                     
-                    <p>2/4</p>
+                    <p><span id="work-done">0</span><span><b>/</b></span><span id="work-total">0</span></p>
                 </section>
             </div>
             <div class="col-1-2">
                 <section class="home-summary">
                     <a href="work.html">Home</a>
                     
-                    <p>2/4</p>
+                    <p><span id="home-done">0</span><span><b>/</b></span><span id="home-total">0</span></p>
                 </section>
             </div>
             <div class="col-1-2">
                 <section class="personal-summary">
                     <a href="work.html">Personal</a>
                    
-                    <p>2/4</p>
+                    <p><span id="personal-done">0</span><span><b>/</b></span><span id="personal-total">0</span></p>
                 </section>
             </div>
         </div>
@@ -652,6 +657,7 @@
             if (inputValue === ""){
                 alert("Field cant be left empty");
                 createList.style.display="none";
+                showNoWorkTasks=noWorkTasks;
         }
             
             else{
@@ -673,10 +679,14 @@
                 columntwo.style.display="none";
                 columnthree.style.display="none";
             }
+            let showNoWorkTasks=document.getElementById("work-total");
+            var noWorkTasks=0;
             function showtasks(){
                columnone.style.display="none";
                columntwo.style.display="block";
                columnthree.style.display="none";
+               noWorkTasks+=1;
+                showNoWorkTasks.innerHTML=noWorkTasks;
             }
             let worktasks=document.getElementById("work-tasks");
             let worktasksbtn=document.getElementById("work-tasks-btn");
@@ -684,9 +694,10 @@
             let hometasksbtn=document.getElementById("home-tasks-btn");
             let personaltasks=document.getElementById("personal-tasks");
             let personaltasksbtn=document.getElementById("personal-tasks-btn");
-            
+      
             //show work tasks
             worktasksbtn.addEventListener("click", showworktasks);
+           
             function showworktasks(){
                 worktasks.style.display="block";
                 hometasks.style.display="none";
@@ -694,6 +705,9 @@
                 worktasksbtn.style.borderBottom="2px solid black";
                 hometasksbtn.style.borderBottom="none";
                 personaltasksbtn.style.borderBottom="none";
+               
+              
+
             }
             //show home tasks
             hometasksbtn.addEventListener("click", showhometasks);
@@ -716,7 +730,6 @@
                 hometasksbtn.style.borderBottom="none"
                 
             }
-          console.log(createList.length);
     </script>
 </body>
 </html>
