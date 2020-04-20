@@ -1,6 +1,6 @@
 body{
     background-color: #000000;
-    min-height: 100vh;
+    min-height: 80vh;
     margin:0;
     padding:0;
     color:#ffffff;
@@ -10,6 +10,11 @@ body{
     display: flex;
     flex-direction: row;
     margin: auto;
+    overflow: hidden;
+    background-color: rgb(5, 5, 5);
+    position: fixed;
+    width: 100%;  
+    top:0;
 }
 #nav-bar, #logo, #search{
     flex-basis: 50%;
@@ -31,6 +36,11 @@ body{
     display: flex;
     flex-direction: row;
     margin:auto;
+    overflow: hidden;
+    background-color: rgb(5, 5, 5);
+    position: fixed;
+    top:100px;
+    width: 100%;  z-index: 99999;
 }
 
 #home, #folder, #music, #tv{
@@ -51,7 +61,7 @@ a:hover{
 
 .first-row{
     background-image: url("./images/computer.jpg");
-    min-height:400px; 
+    min-height:600px; 
     background-size:98% 98%;
     background-position:50% 50%;
     background-repeat: no-repeat;
@@ -89,6 +99,7 @@ a:hover{
     flex-direction: row;
     background-color:rgb(44, 44, 134);
     width:98%; margin:auto;
+    min-height:400px;
 }
 #sign-up{
     margin:auto;
@@ -103,8 +114,7 @@ a:hover{
     color:#ffffff;
 }
 #sign-up-img{
-    background-image: url("./images/computer2.jpg");
-    min-height:400px; 
+    background-image: url("./images/computer2.jpg"); 
     background-size:cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -115,7 +125,7 @@ a:hover{
 
 #movie-carousel{
     width: 98%; margin: auto; margin-bottom: 10px;
-    height:400px;
+    min-height:400px;
     display: flex;
     flex-direction: row;
 }
@@ -155,8 +165,119 @@ a:hover{
     background-image: url("./images/computer2.jpg");
 }
 
-@media screen and (max-width:480px){
-    .first-row, #movie-carousel{
+
+
+.live-page{
+    display: none;
+    margin-top:200px;
+}
+#first-live-row, #second-live-row{
+    overflow: hidden;
+    background-color: rgb(5, 5, 5);
+    position: fixed;
+    width: 100%;  z-index: 99999;
+}
+#second-live-row{
+    margin-top:60px;
+}
+#first-live-row, #lang-ent, #second-live-row{
+    display: flex; flex-direction: row;
+}
+#all-live-videos, #lang-ent{
+    flex-basis: 50%;
+}
+#all-live-videos{
+    margin-left:20px;
+}
+#lang-ent p{
+    flex-basis: 50%;
+    text-align: right;
+    margin-right:15px;
+}
+
+#live-btn, #time-1, #time-2, #time-3{
+    flex-basis: 50%; margin:auto; text-align: center;
+}
+#live-btn-indicator{
+    padding:10px; font-size: 18px; width:100px;
+    background-color: red; border: transparent; outline:none;
+}
+
+
+
+
+.live-movie-show-info{
+    display: flex; flex-direction: column;
+    margin:30px auto; width:90%; 
+}
+#live-shows-container, #live-shows{
+    display: flex; flex-direction: row;
+}
+#live-shows-container:nth-child(1){
+    margin-top:120px;
+}
+#live-shows{
+    flex-basis: 50%;
+}
+#live-show-img{
+    width:150px; height:150px; 
+}
+#vl{
+    border-left: 2px solid white;
+    height:100px; margin: auto; margin-left:50px;
+}
+#live-show-img, #live-info{
+    flex-basis: 50%;
+}
+#live-info{
+    margin: auto; text-align: center;
+}
+
+hr{
+    border-left: 2px solid white; width:100%; margin:20px auto; 
+}
+
+
+#movie-list-page{
+    display: none;
+    margin-top:200px;
+}
+#movie-list-carousel{
+    background-image: url("./images/computer2.jpg"); 
+    background-size:98% 98%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height:400px; display: flex;
+}
+#movie-list-carousel button{
+    margin:auto 30px 30px auto; font-size:20px;
+    padding: 10px; background-color:red;
+}
+#movie-list{
+    display: flex; flex-direction: column;
+}
+#movie-images{
+    display: flex; flex-direction: row;
+}
+#movie-images div{
+    flex-basis: 50%; height:300px; margin:10px;
+}
+#movie-images #comic-img:nth-child(1), #movie-images #comic-img:nth-child(2), #movie-images #comic-img:nth-child(3){ 
+    background-size:98% 98%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+#movie-images #comic-img:nth-child(1){
+    background-image: url("./images/computer2.jpg");
+}
+#movie-images #comic-img:nth-child(2){
+    background-image: url("./images/computer.jpg");
+}
+#movie-images #comic-img:nth-child(3){
+    background-image: url("./images/fatimah.jpg");
+}
+@media screen and (max-width:600px){
+    .first-row, #movie-carousel, #live-movie-show-info, #live-shows-container, #movie-images{
         flex-direction: column;
     }
     #desc{
@@ -164,5 +285,11 @@ a:hover{
     }
     #see-more{
         margin-top:0;
+    }
+    .live-movie-show-info{
+        margin-top:10px;
+    }
+    #live-shows{
+        margin-top: 30px;
     }
 }

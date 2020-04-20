@@ -25,15 +25,15 @@
             <div class="menu-bar">
                 <div id="home">
                     <i class="fa fa-home"></i>
-                    <p><a href="#">Home</a></p>
+                    <p><a href="#home-page" id="home-page-btn">Home</a></p>
                 </div>
                 <div id="folder">
                     <i class="fa fa-folder"></i>
-                    <p><a href="#">Files</a></p>
+                    <p><a href="#live-page" id="live-page-btn">Live</a></p>
                 </div>
                 <div id="tv">
                     <i class="fa fa-tv"></i>
-                    <p><a href="#">TV</a></p>
+                    <p><a href="#movie-list-page" id="tv-page-btn">TV</a></p>
                 </div>
                 <div id="music">
                     <i class="fa fa-music"></i>
@@ -41,7 +41,7 @@
                 </div> 
             </div>
             <!--home page-->
-            <div class="home-page">
+            <div class="home-page" id="home-page">
                 <!--first row-->
                 <div class="first-row">
                     <div id="desc">
@@ -74,7 +74,7 @@
                         </div>
                         <div id="movie-img">
                             <div id="movie-img-2"></div>
-                            <p>War of the Realms: War of Scrolls (2019) #47</p>
+                            <p> War of Scrolls (2019) #47</p>
                         </div>
                             <div id="movie-img">
                             <div id="movie-img-3"></div>
@@ -89,8 +89,158 @@
             </div>
                 
             <!--home page ends here-->
+
+             <!--live page-->
+            <div class="live-page" id="live-page">
+                <!--live first row-->
+                <div id="first-live-row">
+                    <div id="all-live-videos">
+                        <h3><a href="all-live">All <span>HD</span></a></h3>
+                    </div>
+                    <div id="lang-ent">
+                        <p>Language <span><i class="fa fa-angle-down"></i></span></p>
+                        <p>Entertainment <span><i class="fa fa-angle-down"></i></span></p>
+                    </div>
+                </div>
+                <!--live second row-->
+                <div id="second-live-row">
+                    <div id="live-btn">
+                        <button id="live-btn-indicator">Live</button>
+                        <i class="fa fa-angle-left"></i>
+                    </div>
+                    <p id="time-1">10:55 AM</p>
+                    <p id="time-2">10:55 AM</p>
+                    <p id="time-3">10:55 AM</p>
+                </div>
+                
+                <!--live movie show info. fetch api from here-->
+                <div class="live-movie-show-info">
+                    <!--live shows in rows-->
+                    <div id="live-shows-container">
+                        <div id="live-shows">
+                            <img src="images/calculator.png" id="live-show-img">
+                            <div id="vl"></div>
+                            <div id="live-info">
+                                <p>Marvel's The Punisher</p>
+                                <p id="live-show-time">10:30 AM - 11:15 AM</p>
+                            </div>
+                        </div>
+                        
+                        <div id="live-shows">
+                            <img src="images/calculator.png" id="live-show-img">
+                            <div id="vl"></div>
+                            <div id="live-info">
+                                <p>Marvel's The Punisher</p>
+                                <p id="live-show-time">10:30 AM - 11:15 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <!--live shows in rows-->
+                    <div id="live-shows-container">
+                        <div id="live-shows">
+                            <img src="images/calculator.png" id="live-show-img">
+                            <div id="vl"></div>
+                            <div id="live-info">
+                                <p>Marvel's The Punisher</p>
+                                <p id="live-show-time">10:30 AM - 11:15 AM</p>
+                            </div>
+                        </div>
+
+                        <div id="live-shows">
+                            <img src="images/calculator.png" id="live-show-img">
+                            <div id="vl"></div>
+                            <div id="live-info">
+                                <p>Marvel's The Punisher</p>
+                                <p id="live-show-time">10:30 AM - 11:15 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <!--live shows in rows-->
+                    <div id="live-shows-container">
+                        <div id="live-shows">
+                            <img src="images/calculator.png" id="live-show-img">
+                            <div id="vl"></div>
+                            <div id="live-info">
+                                <p>Marvel's The Punisher</p>
+                                <p id="live-show-time">10:30 AM - 11:15 AM</p>
+                            </div>
+                        </div>
+
+                        <div id="live-shows">
+                            <img src="images/calculator.png" id="live-show-img">
+                            <div id="vl"></div>
+                            <div id="live-info">
+                                <p>Marvel's The Punisher</p>
+                                <p id="live-show-time">10:30 AM - 11:15 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <!--live shows in rows-->
+                    <div id="live-shows-container">
+                        <div id="live-shows">
+                            <img src="images/calculator.png" id="live-show-img">
+                            <div id="vl"></div>
+                            <div id="live-info">
+                                <p>Marvel's The Punisher</p>
+                                <p id="live-show-time">10:30 AM - 11:15 AM</p>
+                            </div>
+                        </div>
+
+                        <div id="live-shows">
+                            <img src="images/calculator.png" id="live-show-img">
+                            <div id="vl"></div>
+                            <div id="live-info">
+                                <p>Marvel's The Punisher</p>
+                                <p id="live-show-time">10:30 AM - 11:15 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--live shows end here-->
+                </div>
+            </div>
+            <!--end of live page-->
+            
+
+
+            <!--movies list-->
+            <div  id="movie-list-page">
+                <div id="movie-list-carousel">
+                    <button>Watch now</button>
+                </div>
+                <h3>Marvel Movies</h3>
+                <div id="movie-list">
+                    <div id="movie-images">
+                        <div>
+                            <div id="comic-img"></div>
+                            <p>Thor: Love and Thunder</p>
+                            <p>Nov 12, 2012</p>
+                        </div>
+                        <div>
+                            <div id="comic-img"></div>
+                            <p>Doctor Strange in the Multiverse of madness</p>
+                            <p>Nov 12, 2012</p>
+                        </div>   
+                        <div>
+                            <div id="comic-img"></div>
+                            <p>Black Widow</p>
+                            <p>Nov 12, 2012</p>
+                        </div>                  
+                    </div>
+                </div>
+            </div>
+            <!--movies list end here-->
         </div>
+
+
+       
         <!--footer-->
-    <script src="./src/script.js"></script>
+        <footer>
+
+        </footer>
+    <script src="logic.js"></script>
+    <script src="script.js"></script>
     </body>
 </html>
