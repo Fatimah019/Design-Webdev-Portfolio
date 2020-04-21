@@ -60,7 +60,6 @@ a:hover{
 
 
 .first-row{
-    background-image: url("./images/computer.jpg");
     min-height:600px; 
     background-size:98% 98%;
     background-position:50% 50%;
@@ -97,7 +96,7 @@ a:hover{
 .second-row{
     display: flex;
     flex-direction: row;
-    background-color:rgb(44, 44, 134);
+    background-color:rgb(59, 59, 116);
     width:98%; margin:auto;
     min-height:400px;
 }
@@ -107,7 +106,7 @@ a:hover{
     flex-basis: 50%;
 }
 #learn-more, #sign-up-btn{
-    background-color:rgb(44, 44, 134);
+    background-color:rgb(72, 72, 116);
     border:2px solid white;
     padding: 10px;
     font-size: 15px;
@@ -123,12 +122,6 @@ a:hover{
 
 
 
-#movie-carousel{
-    width: 98%; margin: auto; margin-bottom: 10px;
-    min-height:400px;
-    display: flex;
-    flex-direction: row;
-}
 #movie-h{
     display: flex;
     flex-direction: row;
@@ -139,32 +132,17 @@ a:hover{
 #movie-h #more-movie{
     text-align: right;
 }
-#movie-img{
-    flex-basis: 50%;
-}
-#movie-img p{
-    margin:auto; margin-left:5px; 
-}
-#movie-img-1, #movie-img-2, #movie-img-3, #movie-img-4{
-    min-height:300px; 
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    margin: 20px 5px 5px 5px;
-}
-#movie-img-1{
-    background-image: url("./images/computer2.jpg");
-}
-#movie-img-2{
-    background-image: url("./images/computer2.jpg");
-}
-#movie-img-3{
-    background-image: url("./images/computer2.jpg");
-}
-#movie-img-4{
-    background-image: url("./images/computer2.jpg");
-}
 
+#movie-carousel{
+    width: 98%; margin: auto; margin-bottom: 10px;
+    min-height:400px;
+    display: flex;
+    flex-wrap:wrap;
+}
+.movie-container{
+    flex: 1 1 25%;
+    margin:auto;
+}
 
 
 .live-page{
@@ -277,7 +255,7 @@ hr{
     background-image: url("./images/fatimah.jpg");
 }
 @media screen and (max-width:600px){
-    .first-row, #movie-carousel, #live-movie-show-info, #live-shows-container, #movie-images{
+    .first-row, #live-movie-show-info, #live-shows-container{
         flex-direction: column;
     }
     #desc{
@@ -286,6 +264,10 @@ hr{
     #see-more{
         margin-top:0;
     }
+    .movie-container{
+        flex: 1 1 50;
+        margin:auto;
+    }
     .live-movie-show-info{
         margin-top:10px;
     }
@@ -293,3 +275,18 @@ hr{
         margin-top: 30px;
     }
 }
+
+@media screen and (max-width:380px){
+    .movie-container{
+        flex: 1 1 100%;
+        margin:auto;
+    }
+    .homeImage, .movie-title{
+        width:100%;padding:0 10px 0 10px;
+    }
+}
+
+#footer{
+    height:100px; width:100%; color:#ffffff;
+}
+
